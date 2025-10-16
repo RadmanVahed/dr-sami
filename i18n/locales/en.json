@@ -1,0 +1,16 @@
+{
+  "welcome": "Welcome to the Website",
+  "navigation": {
+    "home": "Home",
+    "profile": "Profile",
+    "services": "Services",
+    "appointment": "Appointment",
+    "educational": "Educational"
+  },
+  "user": {
+    "profileMessage": "Hello, {name}!"
+  },
+  "footer": {
+    "creator": "Build by Radman Vahed"
+  }
+}

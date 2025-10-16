@@ -1,0 +1,16 @@
+{
+  "welcome": " دکتر رامین سامی، فوق تخصص بیماری های ریه و ICU",
+  "navigation": {
+    "home": "خانه",
+    "profile": "پروفایل",
+    "services": "خدمات",
+    "appointment": "نوبت دهی",
+    "educational": "آموزش"
+  },
+  "user": {
+    "profileMessage": "سلام، {name}!"
+  },
+  "footer": {
+    "creator": "ساخته شده توسط رادمان واحد"
+  }
+}
