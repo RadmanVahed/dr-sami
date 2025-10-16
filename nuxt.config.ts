@@ -10,7 +10,11 @@ export default defineNuxtConfig({
     'motion-v/nuxt',
     '@nuxtjs/i18n'
   ],
-
+  app: {
+    baseURL: '/dr-sami/',
+    buildAssetsDir: '_nuxt/',
+  },
+  ssr:false,
   devtools: {
     enabled: true
   },
