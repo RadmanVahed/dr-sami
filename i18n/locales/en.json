@@ -4,13 +4,21 @@
     "home": "Home",
     "profile": "Profile",
     "services": "Services",
-    "appointment": "Appointment",
-    "educational": "Educational"
+    "appointment": "Online appointment booking",
+    "medicalEducation": "Medical education",
+    "patientEducation" : "Patient education",
+    "login":"Login"
   },
   "user": {
     "profileMessage": "Hello, {name}!"
   },
   "footer": {
     "creator": "Build by Radman Vahed"
+  },
+   "error":{
+    "statusCode":"404",
+    "statusMessage":"Page not found",
+    "message":"The page you are looking for does not exist.",
+    "button":"Back to home"
   }
 }

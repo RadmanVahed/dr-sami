@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
-
+ const { t } = useI18n()
 defineProps({
   error: {
     type: Object as PropType<NuxtError>,
@@ -36,7 +36,7 @@ useSeoMeta({
 //     transform: data => data.flat()
 //   })
 // ])
-  const localePath = useLocalePath()
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -46,7 +46,17 @@ useSeoMeta({
     <UMain>
       <UContainer>
         <UPage>
-          <UError :redirect="localePath('/')" :error="error" />
+          <UError :redirect="localePath('/')" :clear="{
+            color: 'neutral',
+            size: 'xl',
+            icon: 'i-lucide-arrow-left',
+            class: 'rounded-full',
+            label:t('error.button')
+          }" :error="{
+      statusCode: Number(t('error.statusCode')),
+      statusMessage: t('error.statusMessage'),
+      message: t('error.message')
+    }" />
         </UPage>
       </UContainer>
     </UMain>

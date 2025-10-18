@@ -25,21 +25,24 @@ const ui = {
 
 <template>
   <UPageSection
+   :dir="useDir().value"
     :title="page.body.faq.title"
     :description="page.body.faq.description"
     :ui="{
       container: 'px-0 !pt-0 gap-4 sm:gap-4',
-      title: 'text-left text-xl sm:text-xl lg:text-2xl font-medium',
-      description: 'text-left mt-2 text-sm sm:text-md lg:text-sm text-muted'
+      title: ' text-xl sm:text-xl lg:text-2xl font-medium',
+      description: ' mt-2 text-sm sm:text-md lg:text-sm text-muted'
     }"
   >
     <UTabs
       :items
       orientation="horizontal"
+       :dir="useDir().value"
       :ui
     >
       <template #content="{ item }">
         <UAccordion
+         :dir="useDir().value"
           trailing-icon="lucide:plus"
           :items="item.questions"
           :unmount-on-hide="false"

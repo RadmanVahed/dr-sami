@@ -2,15 +2,23 @@
   "welcome": " دکتر رامین سامی، فوق تخصص بیماری های ریه و ICU",
   "navigation": {
     "home": "خانه",
-    "profile": "پروفایل",
+    "profile": "بیوگرافی",
     "services": "خدمات",
-    "appointment": "نوبت دهی",
-    "educational": "آموزش"
+    "appointment": "نوبت دهی اینترنتی",
+    "medicalEducation": "آموزش پزشکی",
+    "patientEducation" : "آموزش بیماران",
+    "login":"ورود"
   },
   "user": {
     "profileMessage": "سلام، {name}!"
   },
   "footer": {
     "creator": "ساخته شده توسط رادمان واحد"
+  },
+  "error":{
+    "statusCode":"404",
+    "statusMessage":"صفحه پیدا نشد",
+    "message":"صفحه ای که دنبالش هستی وجود ندارد",
+    "button":"بازگشت به خانه"
   }
 }

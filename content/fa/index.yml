@@ -1,120 +1,120 @@
 seo:
-  title: "Emma Thompson - UX/UI Designer"
-  description: "Welcome to my portfolio! I'm Emma Thompson, a UX/UI designer and front-end developer based in Boston. I specialize in creating user-centered digital experiences that are both beautiful and functional."
-title: "نگاهی نو به آموزش پزشکی"
-description: "با دکتر رامین سامی، فوق تخصص بیماری های ریه و ICU"
+  title: "دکتر رامین سامی - متخصص ریه"
+  description: "به پورتفولیوی من خوش آمدید! من اما تامپسون هستم، طراح تجربه و رابط کاربری (UX/UI) و توسعه‌دهنده فرانت‌اند مستقر در بوستون. در طراحی تجربه‌های دیجیتال کاربرمحور متخصصم که هم زیبا هستند و هم کاربردی."
+title: "نگاهی تازه به آموزش پزشکی"
+description: "با دکتر رامین سامی، فوق‌تخصص ریه و مراقبت‌های ویژه"
 hero:
   links:
-    - label: "Use this template"
+    - label: "استفاده از این قالب"
       to: https://github.com/nuxt-ui-templates/portfolio
       color: "neutral"
   images:
     - src: /hero/random-1.avif
-      alt: Random Image 1
+      alt: تصویر تصادفی ۱
     - src: /hero/random-2.avif
-      alt: Random Image 2
+      alt: تصویر تصادفی ۲
     - src: /hero/random-3.avif
-      alt: Random Image 3
+      alt: تصویر تصادفی ۳
     - src: /hero/random-4.avif
-      alt: Random Image 4
+      alt: تصویر تصادفی ۴
     - src: /hero/random-5.avif
-      alt: Random Image 5
+      alt: تصویر تصادفی ۵
     - src: /hero/random-6.avif
-      alt: Random Image 6
+      alt: تصویر تصادفی ۶
     - src: /hero/random-7.avif
-      alt: Random Image 7
+      alt: تصویر تصادفی ۷
     - src: /hero/random-8.avif
-      alt: Random Image 8
+      alt: تصویر تصادفی ۸
     - src: /hero/random-9.avif
-      alt: Random Image 9
+      alt: تصویر تصادفی ۹
 about:
-  title: "About Me"
+  title: "درباره من"
   description: |
-    As a UX/UI designer and front-end developer with 6 years of experience, I leverage my Boston University Interactive Design degree to craft user-centered digital experiences.
-    My approach blends creative strategy with technical expertise, transforming concepts into functional, purposeful digital products that seamlessly integrate design and technology.
+    به‌عنوان طراح تجربه و رابط کاربری (UX/UI) و توسعه‌دهنده فرانت‌اند با بیش از ۶ سال سابقه، از مدرک طراحی تعاملی دانشگاه بوستون برای خلق تجربه‌های دیجیتال کاربرمحور استفاده می‌کنم.
+    رویکرد من ترکیبی از استراتژی خلاق و تخصص فنی است که ایده‌ها را به محصولات دیجیتال کاربردی و هدفمند تبدیل می‌کند؛ محصولاتی که طراحی و فناوری را به‌صورت یکپارچه تلفیق می‌نمایند.
 experience:
-  title: Work Experience
+  title: "سوابق کاری"
   items:
-    - position: "Brand Designer at"
-      date: "2023 - Present"
+    - position: "طراح برند در"
+      date: "۲۰۲۳ - تاکنون"
       company:
-        name: Nuxt
+        name: "Nuxt"
         logo: "i-simple-icons-nuxtdotjs"
         url: "https://nuxt.com"
         color: "#00DC82"
-    - position: "Assets Designer at"
-      date: "2022 - 2023"
+    - position: "طراح دارایی‌ها در"
+      date: "۲۰۲۲ - ۲۰۲۳"
       company:
-        name: Raycast
+        name: "Raycast"
         logo: "i-simple-icons-raycast"
         url: "https://raycast.com"
         color: "#FF6363"
-    - position: "Senior UX/UI Designer at"
-      date: "2020 - 2021"
+    - position: "طراح ارشد UX/UI در"
+      date: "۲۰۲۰ - ۲۰۲۱"
       company:
-        name: Linear
+        name: "Linear"
         logo: "i-simple-icons-linear"
         url: "https://linear.app"
         color: "#5E6AD2"
 testimonials:
-  - quote: "Emma's approach to UX design completely transformed our product. She has a rare ability to balance beautiful aesthetics with functional simplicity. The redesign not only looked better, but it reduced our customer support tickets by 40% and increased conversion rates across all key metrics."
+  - quote: "رویکرد اما در طراحی تجربه کاربری، محصول ما را به‌کلی متحول کرد. او توانایی نادری در ایجاد تعادل میان زیبایی بصری و سادگی عملکرد دارد. طراحی مجدد نه‌تنها ظاهر بهتری داشت، بلکه میزان تیکت‌های پشتیبانی مشتریان را ۴۰٪ کاهش داد و نرخ تبدیل را در تمام شاخص‌های کلیدی افزایش داد."
     author:
-      name: 'Sarah Chen'
-      description: 'Product Director at Bloom Finance'
+      name: "سارا چن"
+      description: "مدیر محصول در Bloom Finance"
       avatar:
-        src: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=40&h=40&q=80'
-        srcset: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=80&h=80&q=80 2x'
-  - quote: "Working with Emma was the best decision we made for our startup. She didn't just deliver designs—she challenged our assumptions, conducted thorough user research, and created an experience that truly resonated with our audience. Her technical knowledge of front-end development meant the handoff to our engineering team was seamless."
+        src: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?..."
+        srcset: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?... 2x"
+  - quote: "کار با اما بهترین تصمیمی بود که برای استارتاپ‌مان گرفتیم. او فقط طراحی ارائه نکرد — فرضیات ما را به چالش کشید، تحقیقات کاربر انجام داد، و تجربه‌ای ساخت که واقعاً با مخاطبان‌مان ارتباط برقرار کرد. دانش فنی‌اش در فرانت‌اند باعث شد تحویل به تیم فنی کاملاً بی‌دردسر باشد."
     author:
-      name: 'Michael Rodriguez'
-      description: 'Co-founder of Wavelength Music'
+      name: "مایکل رودریگز"
+      description: "هم‌بنیان‌گذار Wavelength Music"
       avatar:
-        src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=40&h=40&q=80'
-        srcset: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=80&h=80&q=80 2x'
-  - quote: "Emma stands out in her ability to translate complex sustainability data into intuitive interfaces. Her work on EcoTrack wasn't just visually stunning—it fundamentally changed how our users interact with environmental information. She approaches each problem with both creativity and analytical rigor, which is exactly what we needed."
+        src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?..."
+        srcset: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?... 2x"
+  - quote: "اما در توانایی تبدیل داده‌های پیچیده پایداری به رابط‌های شهودی برجسته است. کار او روی EcoTrack فقط از نظر بصری زیبا نبود — بلکه نحوه تعامل کاربران با اطلاعات محیط‌زیستی را از پایه تغییر داد. او به هر مسئله با خلاقیت و دقت تحلیلی نزدیک می‌شود؛ دقیقاً همان چیزی که ما نیاز داشتیم."
     author:
-      name: 'Dr. Aisha Johnson'
-      description: 'Chief Innovation Officer at GreenTech Solutions'
+      name: "دکتر آئیشا جانسون"
+      description: "مدیر نوآوری در GreenTech Solutions"
       avatar:
-        src: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=40&h=40&q=80'
-        srcset: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=80&h=80&q=80 2x'
+        src: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?..."
+        srcset: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?... 2x"
 blog:
-  title: "Latest Articles"
-  description: "Some of my recent thoughts"
+  title: "آخرین مقاله‌ها"
+  description: "تازه‌ترین دیدگاه‌های من"
 faq:
-  title: Frequently Asked Questions
-  description: Answers to common questions about my process and services.
+  title: "سؤالات متداول"
+  description: "پاسخ به رایج‌ترین پرسش‌ها درباره فرایند و خدمات کاری من."
   categories:
-    - title: Services & Process
+    - title: "خدمات و فرایند"
       questions:
-        - label: What services do you offer?
+        - label: "چه خدماتی ارائه می‌دهید؟"
           content: |
-            I specialize in UX/UI design and front-end development. This includes user research, wireframing, interactive prototyping, creating intuitive user interfaces, building responsive websites and web applications (especially with Vue.js/Nuxt.js), and developing design systems. My goal is to create seamless digital experiences from concept to deployment.
-        - label: What is your design process like?
+            تخصص من در طراحی تجربه و رابط کاربری (UX/UI) و توسعه فرانت‌اند است. شامل تحقیق کاربر، ترسیم وایرفریم، طراحی نمونه‌های تعاملی، ساخت رابط‌های شهودی، توسعه وب‌سایت‌ها و اپلیکیشن‌های واکنش‌گرا (به‌ویژه با Vue.js/Nuxt.js) و طراحی سیستم‌های طراحی. هدف من ایجاد تجربه‌های دیجیتال روان از ایده تا اجراست.
+        - label: "فرایند طراحی شما چگونه است؟"
           content: |
-            My process is collaborative and iterative, typically involving stages like Discovery & Research, Ideation & Prototyping, User Testing, Visual Design, and close collaboration with development teams during implementation. I tailor the process based on project needs, always focusing on user-centered solutions.
-        - label: Do you work with startups?
+            فرایند کار من مشارکتی و تکرارشونده است، معمولاً شامل مراحل: کشف و تحقیق، ایده‌پردازی و نمونه‌سازی، تست کاربر، طراحی بصری، و همکاری نزدیک با تیم توسعه در طی پیاده‌سازی. این فرایند بر اساس نیاز هر پروژه تنظیم می‌شود و همیشه بر راه‌حل‌های کاربرمحور تمرکز دارد.
+        - label: "آیا با استارتاپ‌ها همکاری می‌کنید؟"
           content: |
-            Absolutely! I enjoy working with startups to help shape their product vision and create user-friendly interfaces from the ground up. I can adapt my process to fit the fast-paced startup environment.
-    - title: Pricing & Timelines
+            قطعاً! علاقه‌مندم با استارتاپ‌ها کار کنم تا چشم‌انداز محصول‌شان را شکل داده و رابط‌هایی کاربرپسند از پایه طراحی کنم. رویکرد من با سرعت بالای محیط‌های استارتاپی سازگار است.
+    - title: "هزینه و زمان‌بندی"
       questions:
-        - label: How much does a project typically cost?
+        - label: "هزینه‌ی پروژه‌ها چقدر است؟"
           content: |
-            Project costs vary based on scope, complexity, features, and timeline. For comprehensive UX/UI design and front-end development projects, my engagements typically start around $5,000, with average projects ranging between $8,000 and $25,000. For consulting or specific design tasks, my day rate is $700.
-        - label: What are your payment terms?
+            هزینه پروژه بر اساس دامنه، پیچیدگی، ویژگی‌ها و زمان‌بندی متغیر است. برای پروژه‌های جامع طراحی UX/UI و توسعه فرانت‌اند، همکاری من معمولاً از حدود ۵۰۰۰ دلار شروع می‌شود و میانگین پروژه‌ها بین ۸۰۰۰ تا ۲۵۰۰۰ دلار است. برای کارهای مشاوره‌ای یا وظایف خاص طراحی، نرخ روزانه من ۷۰۰ دلار است.
+        - label: "شرایط پرداخت شما چگونه است؟"
           content: |
-            I generally require a 40% deposit to schedule the project and begin work, with the remaining 60% due upon successful project completion and delivery. I accept payments via bank transfer and Stripe.
-        - label: How long does a typical project take?
+            معمولاً ۴۰٪ پیش‌پرداخت برای رزرو و شروع کار دریافت می‌کنم و باقیمانده ۶۰٪ پس از تحویل کامل پروژه پرداخت می‌شود. پرداخت‌ها از طریق انتقال بانکی یا Stripe پذیرفته می‌شود.
+        - label: "مدت زمان انجام پروژه معمولاً چقدر است؟"
           content: |
-            Timelines depend heavily on the project's scope and complexity. Smaller projects might take 3-4 weeks, while larger, more involved projects can range from 2 to 4 months. I always provide a detailed timeline estimate after the initial discovery phase.
-        - label: Do you offer retainers or ongoing support?
+            زمان اجرای پروژه بستگی زیادی به حجم و پیچیدگی دارد. پروژه‌های کوچک ممکن است ۳ تا ۴ هفته طول بکشند، در حالی که پروژه‌های بزرگ‌تر بین ۲ تا ۴ ماه متغیرند. پس از مرحله اولیه کشف، تخمین زمان دقیق ارائه می‌دهم.
+        - label: "آیا پشتیبانی یا همکاری ماهانه ارائه می‌دهید؟"
           content: |
-            Yes, for clients needing ongoing design support, feature development, or maintenance, I offer monthly retainer options tailored to specific needs. Let's discuss if this is something you're interested in.
-    - title: About Me
+            بله، برای مشتریانی که نیاز به پشتیبانی طراحی مداوم، توسعه ویژگی‌ها یا نگهداری دارند، بسته‌های ماهانه سفارشی ارائه می‌دهم.
+    - title: "درباره من"
       questions:
-        - label: What do you enjoy most about your work?
+        - label: "از کارتان بیشتر از همه چه چیزی را دوست دارید؟"
           content: |
-            I love the challenge of solving complex problems through design and technology. It's incredibly rewarding to see people interact with something I've created and find it genuinely useful and easy to navigate. Bridging the gap between user needs and technical possibilities is what truly excites me.
-        - label: What are your hobbies outside of work?
+            برایم جذاب است که مسائل پیچیده را با ترکیب طراحی و فناوری حل کنم. دیدن افرادی که با چیزی که ساخته‌ام تعامل می‌کنند و آن را مفید و ساده می‌یابند، واقعاً رضایت‌بخش است. پر کردن شکاف بین نیازهای کاربر و امکانات فنی، چیزی است که همیشه انگیزه‌ام را زنده نگه می‌دارد.
+        - label: "علایق‌تان خارج از کار چیست؟"
           content: |
-            When I'm not designing or coding, I enjoy exploring Boston's neighborhoods, trying out new coffee shops, and hiking in the nearby reservations. I'm also passionate about photography and occasionally contribute to open-source projects.
+            وقتی مشغول طراحی یا کدنویسی نیستم، از قدم‌زدن در محله‌های بوستون، امتحان کافه‌های جدید و پیاده‌روی در مناطق طبیعی اطراف لذت می‌برم. همچنین به عکاسی علاقه‌مندم و گاهی در پروژه‌های متن‌باز مشارکت می‌کنم.

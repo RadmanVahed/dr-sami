@@ -8,15 +8,16 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-og-image',
     'motion-v/nuxt',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
+    '@nuxtjs/device'
   ],
-  app: {
+    app: {
     baseURL: '/dr-sami/',
-    buildAssetsDir: '_nuxt/',
+    buildAssetsDir: 'assets/'
   },
-  ssr:false,
+  ssr:true,
   devtools: {
-    enabled: true
+    enabled: false
   },
 
   css: ['~/assets/css/main.css'],
