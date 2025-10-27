@@ -3,20 +3,20 @@ import type { NavigationMenuItem } from '@nuxt/ui'
 
 const route = useRoute()
 const toast = useToast()
-
+const localePath = useLocalePath()
 const open = ref(false)
 
 const links = [[{
-  label: 'خانه',
+  label: 'داشبورد',
   icon: 'i-lucide-house',
-  to: '/',
+  to: localePath('/dashboard'),
   onSelect: () => {
     open.value = false
   }
 }, {
   label: 'کارتابل',
   icon: 'i-lucide-inbox',
-  to: '/inbox',
+  to: localePath('/dashboard/inbox'),
   badge: '4',
   onSelect: () => {
     open.value = false
@@ -24,38 +24,26 @@ const links = [[{
 }, {
   label: 'کاربران',
   icon: 'i-lucide-users',
-  to: '/customers',
+  to: localePath('/dashboard/customers'),
   onSelect: () => {
     open.value = false
   }
 }, {
   label: 'تنظیمات',
-  to: '/settings',
+  to: localePath('/dashboard/settings'),
   icon: 'i-lucide-settings',
   defaultOpen: true,
   type: 'trigger',
   children: [{
-    label: 'جامع',
-    to: '/settings',
+    label: 'عمومی',
+    to: localePath('/dashboard/settings'),
     exact: true,
     onSelect: () => {
       open.value = false
     }
   }, {
-    label: 'کاربران',
-    to: '/settings/members',
-    onSelect: () => {
-      open.value = false
-    }
-  }, {
-    label: 'نوتیفیکیشن',
-    to: '/settings/notifications',
-    onSelect: () => {
-      open.value = false
-    }
-  }, {
     label: 'امنیت',
-    to: '/settings/security',
+    to: localePath('/dashboard/settings/security'),
     onSelect: () => {
       open.value = false
     }

@@ -1,13 +1,28 @@
 {
+  "basic": {
+    "home": "خانه",
+    "services": "خدمات",
+    "profile": "پروفایل",
+    "password": "کلمه عبور",
+    "save": "ذخیره",
+    "edit": "ویرایش",
+    "settings": "تنظیمات",
+    "submit": "ثبت",
+    "current": "فعلی",
+    "new": "جدید",
+    "saveChanges": "ذخیره تغییرات",
+    "name": "اسم",
+    "email": "ایمیل",
+    "avatar": "آواتار",
+    "choose": "انتخاب"
+  },
   "welcome": " دکتر رامین سامی، فوق تخصص بیماری های ریه و ICU",
   "navigation": {
-    "home": "خانه",
-    "profile": "بیوگرافی",
-    "services": "خدمات",
+    "biography": "بیوگرافی",
     "appointment": "نوبت دهی اینترنتی",
     "medicalEducation": "آموزش پزشکی",
-    "patientEducation" : "آموزش بیماران",
-    "login":"ورود"
+    "patientEducation": "آموزش بیماران",
+    "login": "ورود"
   },
   "user": {
     "profileMessage": "سلام، {name}!"
@@ -15,10 +30,27 @@
   "footer": {
     "creator": "ساخته شده توسط رادمان واحد"
   },
-  "error":{
-    "statusCode":"404",
-    "statusMessage":"صفحه پیدا نشد",
-    "message":"صفحه ای که دنبالش هستی وجود ندارد",
-    "button":"بازگشت به خانه"
+  "error": {
+    "statusCode": "404",
+    "statusMessage": "صفحه پیدا نشد",
+    "message": "صفحه ای که دنبالش هستی وجود ندارد",
+    "button": "بازگشت به خانه"
+  },
+  "dashboard": {
+    "general": {
+      "description": "اطلاعاتی که به صورت عمومی منتشر می شوند."
+    },
+    "security": {
+      "label": "کلمه عبور فعلی خود را قبل از ویرایش تایید کنید.",
+      "newPassword": "کلمه عبور جدید",
+      "currentPassword": "کلمه عبور فعلی"
+    }
+  },
+  "validations": {
+    "short": "مقدار وارد شده کوتاه است",
+    "email": "ایمیل وارد شده نا معتبر است",
+    "minPassword": "کلمه عبور می بایست حداقل از 8 حرف باشد",
+    "error": "مقدار وارد شده صحیح نمی باشد",
+    "uniquePassword": "کلمه عبور جدید باید متفاوت از قبلی باشد"
   }
 }
