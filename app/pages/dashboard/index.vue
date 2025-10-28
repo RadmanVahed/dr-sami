@@ -5,11 +5,11 @@ const { t } = useI18n()
 const { isNotificationsSlideoverOpen } = useDashboard()
 
 const items = [[{
-  label: 'New mail',
+  label: t('dashboard.addService'),
   icon: 'i-lucide-send',
   to: '/inbox'
 }, {
-  label: 'New customer',
+  label: t('dashboard.addPost'),
   icon: 'i-lucide-user-plus',
   to: '/customers'
 }]] satisfies DropdownMenuItem[][]
@@ -60,9 +60,9 @@ const period = ref<any>('daily')
     </template>
 
     <template #body>
-      <HomeStats :period="period" :range="range" />
+      <!-- <HomeStats :period="period" :range="range" />
       <HomeChart :period="period" :range="range" />
-      <HomeSales :period="period" :range="range" />
+      <HomeSales :period="period" :range="range" /> -->
     </template>
   </UDashboardPanel>
 </template>

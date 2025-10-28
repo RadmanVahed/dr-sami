@@ -7,17 +7,17 @@ export function useNavLinks(): NavigationMenuItem[] {
   const desktopLinks: NavigationMenuItem[] = []
   if (d.isDesktopOrTablet) {
     desktopLinks.push({
-      label: t('navigation.medicalEducation'), to: localePath('about')
+      label: t('navigation.medicalEducation'),
     },
       {
-        label: t('navigation.patientEducation'), to: localePath('about')
-      }, { label: t('navigation.profile'), icon: 'i-lucide-user', to: localePath('/about') })
+        label: t('navigation.patientEducation'),
+      }, { label: t('basic.profile'), icon: 'i-lucide-user' })
   }
 
   return [
-    { label: t('navigation.home'), to: localePath('/') },
+    { label: t('basic.home'), to: localePath('/') },
     {
-      label: t('navigation.services'), popover: {
+      label: t('basic.services'), popover: {
         mode: 'click'
       }, children: [
         {

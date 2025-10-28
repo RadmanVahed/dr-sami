@@ -6,7 +6,6 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/content',
     '@vueuse/nuxt',
-    'nuxt-og-image',
     'motion-v/nuxt',
     '@nuxtjs/i18n',
     '@nuxtjs/device'
@@ -26,12 +25,28 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: [
-        '/'
-      ],
-      crawlLinks: true
+      routes: ['/'],
+      crawlLinks: false, // ✅ غیرفعال (قبلاً اعمال شده)
+      concurrency: 1,    // ✅ فقط یک route همزمان
+      interval: 100      // ✅ تاخیر بین route‌ها
+    },
+
+    // ✨ جدید: غیرفعال کردن ویژگی‌های سنگین
+    minify: false,        // 🔴 موقتاً غیرفعال (minify سنگینه)
+    sourceMap: false,     // ✅ حذف sourcemap
+
+    // ✨ جدید: کاهش فشرده‌سازی
+    compressPublicAssets: false, // 🔴 موقتاً غیرفعال
+
+    // ✨ جدید: تنظیمات rollup سبک‌تر
+    rollupConfig: {
+      output: {
+        chunkFileNames: '_nuxt/[name].js',
+        manualChunks: undefined // 🔴 حذف manual chunks
+      }
     }
   },
+
 
   eslint: {
     config: {
