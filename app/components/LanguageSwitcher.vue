@@ -17,7 +17,7 @@ const availableLocales = computed(() => {
     <UPopover :ui="{
       content:'m-2'
     }" >
-      <UButton size="sm" color="neutral" variant="ghost" class="rounded-full ring-inset" icon="i-lucide-globe" />
+      <UButton color="neutral" variant="ghost" class="rounded-full ring-inset" icon="i-lucide-globe" />
 
       <template #content>
        <div class="flex flex-col w-full p-1 gap-1">

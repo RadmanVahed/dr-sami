@@ -45,13 +45,9 @@ useSeoMeta({
 
 <template>
   <UApp>
-    <NuxtLoadingIndicator />
     <NuxtLayout>
-
         <NuxtPage />
-
     </NuxtLayout>
-
     <ClientOnly>
       <!-- <LazyUContentSearch
         :files="files"

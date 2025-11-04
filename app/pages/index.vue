@@ -36,7 +36,11 @@ const links = ref<ButtonProps[]>([
 ])
 const { data, pending, error } = useLazyFetch('/api/doctorTo');
 
-const freeTime = computed(() => {
+const paziresh24 = useLazyFetch('/api/paziresh24')
+console.log(paziresh24.data.value?.search?.result[1]);
+
+
+const drToFreeTime = computed(() => {
   if (!data.value) {
     return 'درحال دریافت اولین نوبت خالی...'
   }
@@ -45,8 +49,34 @@ const freeTime = computed(() => {
   }
   return `${data.value.items.free_next_consultation_time.shamsi_date} ساعت ${data.value.items.free_next_consultation_time.time}`
 })
-
-const planFeatures = computed(() => {
+const P24PlanFeatures = computed(() => {
+  if (!paziresh24.data.value) {
+    return [
+      'درحال دریافت آمار مشاهده پروفایل...',
+      'درحال دریافت میزان رضایت کاربران...',
+      'درحال دریافت آدرس ...',
+      'درحال دریافت زمان انتظار...'
+    ];
+  }
+  return [
+    {
+      title: `${paziresh24.data.value?.search?.result[1].view} مشاهده پروفایل`,
+    },
+    {
+      title: `${paziresh24.data.value?.search?.result[1].star}/5 از (${paziresh24.data.value?.search?.result[1].rates_count} نظر)`,
+      icon: 'i-lucide-user'
+    },
+    {
+      title: `${paziresh24.data.value?.search?.result[1].centers[0].name}`,
+      icon: 'i-lucide-map-pin'
+    },
+    {
+      title: `${paziresh24.data.value?.search?.result[1].waiting_time} میانگین انتظار`,
+      icon: 'i-lucide-clock'
+    }
+  ];
+});
+const drToPlanFeatures = computed(() => {
   if (!data.value) {
     return [
       'درحال دریافت آمار نوبت‌ها...',
@@ -77,17 +107,17 @@ const cards = ref<PageCardProps[]>([
   {
     title: 'بازتوانی ریه',
     description: 'بازتوانی ریه شکل مدرن درمان بیماری مزمن ریوی است که هدف آن بهبود تناسب‌اندام و کیفیت زندگی است',
-    to: '/docs/getting-started/integrations/icons'
+    to: '/'
   },
   {
     title: 'بازتوانی ریه',
     description: 'بازتوانی ریه شکل مدرن درمان بیماری مزمن ریوی است که هدف آن بهبود تناسب‌اندام و کیفیت زندگی است',
-    to: '/docs/getting-started/integrations/fonts'
+    to: '/'
   },
   {
     title: 'بازتوانی ریه',
     description: 'بازتوانی ریه شکل مدرن درمان بیماری مزمن ریوی است که هدف آن بهبود تناسب‌اندام و کیفیت زندگی است',
-    to: '/docs/getting-started/integrations/color-mode'
+    to: '/'
   }
 ])
 const authors = ref([
@@ -241,8 +271,8 @@ const testimonials = ref([
         </div>
       </UCarousel>
 
-      <UPricingPlan v-if="data" description="نوبت دهی آنلاین از طریق دکترتو" :features="planFeatures"
-        :tagline="freeTime" :button="{ label: 'رزرو نوبت' }" orientation="horizontal" variant="outline">
+      <UPricingPlan v-if="data" description="نوبت دهی آنلاین از طریق دکترتو" :features="drToPlanFeatures"
+        :tagline="drToFreeTime" :button="{ label: 'رزرو نوبت' }" orientation="horizontal" variant="outline">
         <template #title>
           <div class="flex items-center gap-2">
             <UAvatar class="w-18 h-18 p-1"
@@ -251,22 +281,18 @@ const testimonials = ref([
           </div>
         </template>
         <template #tagline>
-          <span class="text-neutral-500">اولین نوبت آزاد دکتر:</span>
-          <h1 class="text-sm mt-2">{{ freeTime }}</h1>
+          <span class="text-neutral-500 w-full flex justify-center">اولین نوبت آزاد دکتر</span>
+          <h1 class="text-sm mt-2">{{ drToFreeTime }}</h1>
         </template>
       </UPricingPlan>
-      <UPricingPlan v-if="data" description="نوبت دهی آنلاین از طریق پذیرش 24" :features="planFeatures"
-        :tagline="freeTime" :button="{ label: 'رزرو نوبت' }" orientation="horizontal" variant="outline">
+      <UPricingPlan v-if="data" description="نوبت دهی آنلاین از طریق پذیرش 24" :features="P24PlanFeatures"
+         :button="{ label: 'رزرو نوبت' }" orientation="horizontal" variant="outline">
         <template #title>
           <div class="flex items-center gap-2">
             <UAvatar class="w-18 h-18 p-1"
               src="https://play-lh.googleusercontent.com/2-wWgDz3w-qsVYQVdkMpN-JBPMCJr_-YVyJnKBm3qTqI9QN4WYxLrE3WWMjViNGCxZ0" />
             <h1 class="text-xl">پذیرش 24</h1>
           </div>
-        </template>
-        <template #tagline>
-          <span class="text-neutral-500">اولین نوبت آزاد دکتر:</span>
-          <h1 class="text-sm mt-2">{{ freeTime }}</h1>
         </template>
       </UPricingPlan>
        <UCarousel dir="ltr" v-slot="{ item }" :dots="!$device.isDesktopOrTablet" :arrows="$device.isDesktopOrTablet" :ui="{ item: $device.isDesktopOrTablet ? 'basis-1/3': ''}" :items="[1,2,3]" class="w-full">
