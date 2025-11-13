@@ -9,6 +9,9 @@ const initialItems = [
     label: t('basic.services'), to: '#services'
   },
   {
+    label: t('navigation.appointment') , to: '#appointment'
+  },
+  {
     label: t('navigation.medicalEducation'), to: '#medical-education'
   },
   {

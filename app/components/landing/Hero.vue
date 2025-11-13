@@ -27,8 +27,11 @@ const dir = useDir().value
           duration: 0.6,
           delay: 0.1
         }">
-        <UAvatar class="size-34 ring ring-default ring-offset-3 ring-offset-(--ui-bg)"
-          src="https://imgcdn.stablediffusionweb.com/2024/10/29/a450d65f-b789-416c-945a-4f2d19a15d23.jpg" :alt="global.picture?.alt!" />
+      <UAvatar
+      size="3xl"
+  class="size-28 object-contain rounded-full shadow-none ring-[1.5px] ring-default ring-offset-2 ring-offset-transparent"
+  src="/images/profilePic3.png"
+/>
       </Motion>
     </template>
 
