@@ -52,13 +52,7 @@ const ui = {
             trailingIcon: 'group-data-[state=closed]:rotate-0 group-data-[state=open]:rotate-135 text-base text-muted'
           }"
         >
-          <template #body="{ item: _item }">
-            <MDC
-              :value="_item.content ?? ''"
-              unwrap="p"
-              class="px-4"
-            />
-          </template>
+
         </UAccordion>
       </template>
     </UTabs>

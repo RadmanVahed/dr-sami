@@ -1,6 +1,10 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const { data, pending, error } = useLazyFetch('/api/doctorTo')
+useHead({
+  title: t('appointment.pageTitle'),
+})
+// ✅ رشته‌های زمان و وضعیت نوبت از ترجمه گرفته می‌شن
 const drToFreeTime = computed(() => {
   if (!data.value) {
     return t('appointment.section.loadingFreeTime')
@@ -11,6 +15,7 @@ const drToFreeTime = computed(() => {
   return `${data.value.items.free_next_consultation_time.shamsi_date} ${t('basic.at')} ${data.value.items.free_next_consultation_time.time}`
 })
 
+// ✅ ویژگی‌های پلن نمایش بر اساس داده یا ترجمه‌ی پیش‌فرض
 const drToPlanFeatures = computed(() => {
   if (!data.value) {
     return [
@@ -47,6 +52,7 @@ const drToPlanFeatures = computed(() => {
 </script>
 
 <template>
+  <UContainer  class="my-8">
     <UPricingPlan
 
     v-if="data"
@@ -55,6 +61,7 @@ const drToPlanFeatures = computed(() => {
     :tagline="drToFreeTime"
     :button="{ label: t('appointment.buttonLabel') }"
     orientation="horizontal"
+    variant="soft"
   >
     <template #title>
       <div class="flex items-center gap-2">
@@ -73,4 +80,5 @@ const drToPlanFeatures = computed(() => {
       <h1 class="text-sm mt-2">{{ drToFreeTime }}</h1>
     </template>
   </UPricingPlan>
+  </UContainer>
 </template>

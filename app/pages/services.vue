@@ -1,6 +1,10 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
+useHead({
+  title: t('services.pageTitle')
+})
+
 const services = [
   {
     key: 'asthmaAllergy',
@@ -46,12 +50,13 @@ const services = [
 </script>
 
 <template>
-  <UPageGrid>
+  <UContainer :dir="useDir().value" class="my-8">
+      <UPageGrid>
     <UPageCard
       v-for="(service, index) in services"
       :key="index"
       :title="t(`services.list.${service.key}.title`)"
-      :to="service.to"
+
       :ui="{ title: 'text-xl' }"
     >
       <template #header>
@@ -71,4 +76,5 @@ const services = [
       </template>
     </UPageCard>
   </UPageGrid>
+  </UContainer>
 </template>

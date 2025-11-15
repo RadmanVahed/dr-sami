@@ -1,24 +1,168 @@
 {
-  "welcome": "Welcome to the Website",
-  "navigation": {
+  "basic": {
     "home": "Home",
-    "profile": "Profile",
     "services": "Services",
-    "appointment": "Online appointment booking",
-    "medicalEducation": "Medical education",
-    "patientEducation" : "Patient education",
-    "login":"Login"
+    "profile": "Profile",
+    "password": "Password",
+    "save": "Save",
+    "edit": "Edit",
+    "settings": "Settings",
+    "at": "At",
+    "submit": "Submit",
+    "current": "Current",
+    "new": "New",
+    "saveChanges": "Save Changes",
+    "name": "Name",
+    "onlineAppointment": "Online Appointment",
+    "email": "Email",
+    "avatar": "Avatar",
+    "choose": "Choose"
+  },
+  "welcome": "Dr. Ramin Sami, Pulmonologist and ICU Specialist",
+  "navigation": {
+    "biography": "Biography",
+    "aboutDoctor": "About Dr.",
+    "appointment": "Appointment",
+    "medicalEducation": "Medical Education",
+    "patientEducation": "Patient Education",
+    "contact": "Contact",
+    "login": "Login"
   },
   "user": {
     "profileMessage": "Hello, {name}!"
   },
   "footer": {
-    "creator": "Build by Radman Vahed"
+    "creator": "Made by AradCore"
   },
-   "error":{
-    "statusCode":"404",
-    "statusMessage":"Page not found",
-    "message":"The page you are looking for does not exist.",
-    "button":"Back to home"
+  "error": {
+    "statusCode": "404",
+    "statusMessage": "Page Not Found",
+    "message": "The page you are looking for does not exist.",
+    "button": "Back to Home"
+  },
+  "dashboard": {
+    "general": {
+      "description": "Information that is published publicly."
+    },
+    "security": {
+      "label": "Confirm your current password before editing.",
+      "newPassword": "New Password",
+      "currentPassword": "Current Password"
+    },
+    "addService": "Add New Service",
+    "addPost": "Add New Post"
+  },
+  "validations": {
+    "short": "The entered value is too short.",
+    "email": "The entered email is invalid.",
+    "minPassword": "Password must be at least 8 characters long.",
+    "error": "The entered value is not correct.",
+    "uniquePassword": "New password must be different from the previous one."
+  },
+  "about": {
+    "pageTitle": "About",
+    "title": "About Dr. Ramin Sami",
+    "description": "Dr. Ramin Sami, an internist and specialist in pulmonary diseases and ICU, entered Isfahan University of Medical Sciences in 1994. After completing various educational courses, he received the subspecialty board in pulmonary diseases and ICU from Shahid Beheshti University of Medical Sciences in Tehran in 2011, ranking first. Since then, he has been working as a university faculty member.",
+    "button": "Download Resume",
+    "alt": "Image of Dr. Sami"
+  },
+  "contact": {
+    "pageTitle": "Contact",
+    "title": "Contact Dr.",
+    "description": "Enter your full information to contact the doctor.",
+    "form": {
+      "submitLabel": "Send Message",
+      "fields": {
+        "fullname": {
+          "label": "Full Name",
+          "placeholder": "Enter your full name.",
+          "validation": {
+            "required": "Please enter your full name.",
+            "invalid": "Please enter a valid name."
+          }
+        },
+        "phone": {
+          "label": "Phone Number",
+          "placeholder": "Enter your phone number.",
+          "validation": {
+            "required": "Please enter your phone number.",
+            "min": "The entered phone number is not valid.",
+            "max": "The entered phone number is not valid."
+          }
+        },
+        "subject": {
+          "label": "Subject",
+          "placeholder": "Write the subject of your message.",
+          "validation": {
+            "required": "Please write the subject of your message."
+          }
+        }
+      },
+      "toast": {
+        "success": {
+          "title": "Success",
+          "description": "The form was submitted successfully."
+        }
+      }
+    }
+  },
+  "services": {
+    "pageTitle": "Services",
+    "list": {
+      "asthmaAllergy": {
+        "title": "Diagnosis and Treatment of Asthma and Respiratory Allergies",
+        "description": "Providing the latest diagnostic and therapeutic methods for complete control of asthma and allergies in children and adults, to improve quality of life and comfortable breathing."
+      },
+      "copd": {
+        "title": "Management of Chronic Obstructive Pulmonary Disease (COPD)",
+        "description": "Comprehensive treatment planning including medication, pulmonary rehabilitation, and necessary education to reduce symptoms and prevent disease progression."
+      },
+      "bronchoscopy": {
+        "title": "Diagnostic and Therapeutic Bronchoscopy",
+        "description": "Performing bronchoscopy with advanced equipment for sampling (biopsy), accurate diagnosis of lung diseases, and necessary therapeutic interventions."
+      },
+      "spirometry": {
+        "title": "Pulmonary Function Tests (Spirometry)",
+        "description": "Accurate assessment of lung capacity and function through spirometry for correct diagnosis of diseases and monitoring treatment progress."
+      },
+      "ildFibrosis": {
+        "title": "Interstitial Lung Diseases and Pulmonary Fibrosis",
+        "description": "A specialized approach in the diagnosis and management of complex lung diseases such as fibrosis, aiming to slow disease progression and maintain respiratory function."
+      },
+      "sleepApnea": {
+        "title": "Sleep-Related Breathing Disorders (Sleep Apnea)",
+        "description": "Evaluation and treatment of sleep apnea to improve sleep quality, reduce daytime fatigue, and prevent cardiovascular complications."
+      },
+      "cancerScreening": {
+        "title": "Early Detection and Screening for Lung Cancer",
+        "description": "Providing screening services for at-risk individuals and diagnosing early-stage lung cancer using modern methods to increase the chances of successful treatment."
+      },
+      "consultation": {
+        "title": "Specialized Pulmonary Consultation (Second Opinion)",
+        "description": "Providing consultation before major surgeries, specialized review of complex medical records (second opinion), and guiding patients to choose the best treatment path."
+      }
+    }
+  },
+  "appointment": {
+    "pageTitle": "Appointment",
+    "description": "Online appointments via Doctoreto",
+    "buttonLabel": "Book Appointment",
+    "section": {
+      "title": "Doctoreto",
+      "taglineTitle": "Doctor's First Available Slot",
+      "loadingFreeTime": "Fetching the first available slot...",
+      "noFreeTime": "The doctor currently has no available slots."
+    },
+    "features": {
+      "loading": {
+        "appointments": "Fetching appointment statistics...",
+        "recommendations": "Fetching user recommendation rate...",
+        "address": "Fetching clinic address...",
+        "waiting": "Fetching average waiting time..."
+      },
+      "successfulAppointments": "{count} successful appointments",
+      "userRecommendations": "{percent}% user recommendations",
+      "waitingTime": "{time} average waiting time"
+    }
   }
 }

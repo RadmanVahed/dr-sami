@@ -7,20 +7,12 @@ const { t, locales } = useI18n()
 <template>
   <UFooter
     class="z-10 bg-default"
-    :ui="{ left: 'text-muted text-xs' }"
+    :ui="{ root: `text-muted text-xs ${useDir().value}` }"
   >
-    <template #left>
-      {{ t('footer.creator') }}
-    </template>
-
-    <template #right>
-      <template v-if="footer?.links">
-        <UButton
-          v-for="(link, index) of footer?.links"
-          :key="index"
-          v-bind="{ size: 'xs', color: 'neutral', variant: 'ghost', ...link }"
-        />
-      </template>
+    <template #default>
+      <a class="hover:underline" target="_blank" href="https://aradcore.com">
+        {{ t('footer.creator') }}
+      </a>
     </template>
   </UFooter>
 </template>

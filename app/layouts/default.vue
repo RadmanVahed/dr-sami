@@ -1,12 +1,11 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <div>
-    <UContainer class="sm:border-x border-default">
-      <AppHeader />
+  <div class="flex flex-col min-h-screen bg-white dark:bg-neutral-900">
+    <AppHeader />
+    <main class="flex-1">
       <slot />
-      <AppFooter />
-    </UContainer>
+    </main>
+    <AppFooter class="mt-auto border-t border-neutral-200 dark:border-neutral-800" />
   </div>
 </template>

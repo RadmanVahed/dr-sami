@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const { footer, global } = useAppConfig()
  const { t } = useI18n()
+
+const localePath = useLocalePath()
 defineProps<{
   page: any
 }>()
@@ -86,7 +88,7 @@ const dir = useDir().value
           delay: 0.5
         }">
         <div v-if="page.body?.hero.links" class="flex items-center gap-2">
-          <UButton :label="t('navigation.appointment')" color="info" />
+          <UButton :label="t('basic.onlineAppointment')" :to="localePath('/appointment')" color="info" />
           <Motion v-for="(link, index) of footer?.links" :key="index" :initial="{
           scale: 1.1,
           opacity: 0,

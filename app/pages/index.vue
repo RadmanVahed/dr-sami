@@ -50,7 +50,7 @@ const authors = ref([
 
 <template>
   <UPage v-if="page" :dir="useDir().value">
-    <UPageSection>
+    <UPageSection id="page-top-sentinel">
       <LandingHero :dir="useDir().value" :page />
     </UPageSection>
     <UPageSection id="services" title="خدمات تخصصی"

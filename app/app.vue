@@ -18,7 +18,7 @@ useHead({
 })
 useFont()
 useSeoMeta({
-  titleTemplate: '%s - Nuxt Portfolio Template',
+  titleTemplate: '%s - دکتر رامین سامی',
   ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/portfolio-light.png',
   twitterImage: 'https://ui.nuxt.com/assets/templates/nuxt/portfolio-light.png',
   twitterCard: 'summary_large_image'
@@ -48,14 +48,5 @@ useSeoMeta({
     <NuxtLayout>
         <NuxtPage />
     </NuxtLayout>
-    <ClientOnly>
-      <!-- <LazyUContentSearch
-        :files="files"
-        :navigation="navigation"
-        shortcut="meta_k"
-        :links="useNavLinks()"
-        :fuse="{ resultLimit: 42 }"
-      /> -->
-    </ClientOnly>
   </UApp>
 </template>
