@@ -110,11 +110,16 @@ ssr: true,
 
   // ✅ Vite فیکس شده
   vite: {
+     optimizeDeps: {
+      exclude: ['@sqlite.org/sqlite-wasm']
+    },
     build: {
+      rollupOptions: {
+        external: ['@sqlite.org/sqlite-wasm']
+      },
       cssMinify: 'lightningcss',
       target: 'es2020',
-      minify: 'terser',
-
+      minify: 'esbuild',
       terserOptions: {
         compress: {
           drop_console: true,

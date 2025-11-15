@@ -135,16 +135,3 @@ faq:
           content: |
             No, spirometry is completely non-invasive and painless.
             It simply measures your breathing capacity by having you inhale and exhale deeply into a specialized device.
-
-    - title: "Miscellaneous"
-      questions:
-        - label: "Do you accept health insurance?"
-          content: |
-            The clinic currently operates on a private payment basis, but official invoices are provided for reimbursement by supplemental insurance.
-        - label: "Is my medical information kept confidential?"
-          content: |
-            Yes. All patient data and records are securely stored in compliance with medical privacy laws and confidentiality standards.
-        - label: "How can I contact Dr. Sami?"
-          content: |
-            You can reach out through the contact form on the website, by phone, or via verified social accounts (LinkedIn, Instagram).
-            The support team will respond as promptly as possible.

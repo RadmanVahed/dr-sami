@@ -1,13 +1,6 @@
 <script setup lang="ts">
-import type { NavigationMenuItem } from '@nuxt/ui'
-import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
-import { useRoute } from '#imports'
-
 const { t } = useI18n()
 const localePath = useLocalePath()
-const route = useRoute()
-
-
 </script>
 
 
@@ -16,13 +9,13 @@ const route = useRoute()
     <template #title>
       <ClientOnly>
  <NuxtLink :to="localePath('/')">
-         <span class="text-xl">دکتر رامین سامی</span>
+         <span class="text-xl">{{ t('basic.dr') }}</span>
       </NuxtLink>
       </ClientOnly>
 
     </template>
 
-    <UNavigationMenu variant="link" dir="rtl" :items="[
+    <UNavigationMenu variant="link" :dir="useDir().value" :items="[
   { label: t('basic.services'), to: localePath('/services') },
   { label: t('navigation.appointment'), to: localePath('/appointment') },
   { label: t('navigation.medicalEducation'), to: '/' },
@@ -32,8 +25,8 @@ const route = useRoute()
 ]" class="hidden md:flex" />
 
     <template #body>
-      <UNavigationMenu dir="rtl" :items="[
-  { label: t('basic.services'), to: '/' },
+      <UNavigationMenu :dir="useDir().value" :items="[
+  { label: t('basic.services'), to:localePath('/services') },
   { label: t('navigation.appointment'), to: localePath('/appointment') },
   { label: t('navigation.medicalEducation'), to: '/' },
   { label: t('navigation.patientEducation'), to: '/' },
