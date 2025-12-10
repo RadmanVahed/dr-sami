@@ -121,17 +121,3 @@ faq:
           content: |
             Please notify the clinic at least 24 hours in advance so your time slot can be reassigned.
             If canceled in time, rebooking is possible without any extra charge.
-
-    - title: "Medical Questions"
-      questions:
-        - label: "When should I see a pulmonologist?"
-          content: |
-            If you experience persistent cough, shortness of breath, wheezing, chest pain, or symptoms of sleep apnea, it’s best to get evaluated by a lung specialist to identify the cause and begin proper treatment.
-        - label: "What’s the difference between asthma and COPD?"
-          content: |
-            Asthma often begins early in life and can be well controlled with medication.
-            COPD, however, generally occurs in adults over 40 — especially smokers — and involves permanent lung damage, making it less reversible.
-        - label: "Is spirometry painful?"
-          content: |
-            No, spirometry is completely non-invasive and painless.
-            It simply measures your breathing capacity by having you inhale and exhale deeply into a specialized device.

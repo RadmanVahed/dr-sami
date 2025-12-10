@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
-
+@import 'swiper/css';
+@import 'swiper/css/pagination';
+@import 'swiper/css/navigation';
 @source "../../../content/**/*";
 
 @theme {
@@ -9,6 +11,19 @@
 
 .rtl{
   direction: rtl;
+}
+.ltr{
+  direction: ltr;
+}
+.swiper-pagination {
+  bottom: 0 !important;
+
+}
+.swiper-pagination-bullet {
+  background-color: var(--text-color-default);
+}
+.swiper-pagination-bullet-active{
+  background-color: var(--color-primary);
 }
 @font-face {
   font-family: 'IranYekan';

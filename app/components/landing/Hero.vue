@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { footer, global } = useAppConfig()
- const { t } = useI18n()
+ const { t , locale} = useI18n()
 
 const localePath = useLocalePath()
 defineProps<{
@@ -12,7 +12,7 @@ const dir = useDir().value
 <template>
   <UPageHero :ui="{
     headline: 'flex items-center justify-center',
-    title: 'text-shadow-md mx-auto',
+    title: 'text-shadow-md',
     links: 'mt-4 flex-col justify-center items-center',
     description:'text-pretty'
   }">
@@ -29,15 +29,11 @@ const dir = useDir().value
           duration: 0.6,
           delay: 0.1
         }">
-      <UAvatar
-      size="3xl"
-  class="size-28 object-contain rounded-full shadow-none ring-[1.5px] ring-default ring-offset-2 ring-offset-transparent"
-  src="/images/profilePic3.png"
-/>
+      <NuxtImg class="rounded-2xl" :src="`/images/hero-${locale}.png`" />
       </Motion>
     </template>
 
-    <template #title>
+    <!-- <template #title>
       <div :dir="dir">
         <Motion :initial="{
           scale: 1.1,
@@ -51,11 +47,11 @@ const dir = useDir().value
           duration: 0.6,
           delay: 0.1
         }">
-          {{ page.title }}
+          {{ page.seo.title }}
         </Motion>
       </div>
-    </template>
-    <template #description>
+    </template> -->
+    <!-- <template #description>
       <div :dir="dir">
         <Motion :initial="{
           scale: 1.1,
@@ -72,7 +68,7 @@ const dir = useDir().value
           {{ page.description }}
         </Motion>
       </div>
-    </template>
+    </template> -->
 
     <template #links>
       <Motion :initial="{
@@ -88,7 +84,7 @@ const dir = useDir().value
           delay: 0.5
         }">
         <div v-if="page.body?.hero.links" class="flex items-center gap-2">
-          <UButton :label="t('basic.onlineAppointment')" :to="localePath('/appointment')" color="info" />
+          <UButton :label="t('basic.onlineAppointment')" size="xl" :to="localePath('/appointment')" color="info" />
           <Motion v-for="(link, index) of footer?.links" :key="index" :initial="{
           scale: 1.1,
           opacity: 0,
@@ -101,7 +97,7 @@ const dir = useDir().value
             duration: 0.6,
             delay: 0.5 + index * 0.1
           }">
-          <UButton v-bind="{ size: 'md', color: 'neutral', variant: 'ghost', ...link }" />
+          <UButton v-bind="{ size: 'xl', color: 'neutral', variant: 'ghost', ...link }" />
         </Motion>
         </div>
       </Motion>

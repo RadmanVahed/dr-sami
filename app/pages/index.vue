@@ -19,7 +19,6 @@ if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
 
-// SEO meta
 useSeoMeta({
   title: page.value?.seo.title || page.value?.title,
   ogTitle: page.value?.seo.title || page.value?.title,
@@ -27,7 +26,6 @@ useSeoMeta({
   ogDescription: page.value?.seo.description || page.value?.description
 })
 
-// hero button & author info from i18n
 const links = ref<ButtonProps[]>([
   {
     label: t('home.hero.button'),
@@ -49,38 +47,32 @@ const authors = ref([
 
 <template>
   <UPage v-if="page" :dir="useDir().value">
-    <UPageSection id="page-top-sentinel">
-      <LandingHero :dir="useDir().value" :page />
+    <LandingHero :dir="useDir().value" :page />
+    <UPageSection id="services" :title="t('home.sections.services.title')"
+      :description="t('home.sections.services.description')" :ui="{
+        container: 'w-full !gap-0',
+        title: 'text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl text-center',
+        description: 'mt-4 text-lg text-gray-500 dark:text-gray-400 text-center'
+      }">
+      <LandingServices />
+    </UPageSection>
+
+    <UPageSection :title="t('home.sections.appointment.title')" id="appointment" :ui="{ container: '!pt-0 w-full' }">
+      <LandingAppointments />
     </UPageSection>
 
     <UPageSection
-      id="services"
-      :title="t('home.sections.services.title')"
-      :description="t('home.sections.services.description')"
+      id="blog"
+      :title="t('home.sections.blog.title')"
+      :description="t('home.sections.blog.description')"
       :ui="{
-        container: 'w-full',
+        container: 'w-full !gap-0',
         title: 'text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl text-center',
         description: 'mt-4 text-lg text-gray-500 dark:text-gray-400 text-center'
       }"
     >
-      <LandingServices />
-    </UPageSection>
-
-    <UPageSection
-      :title="t('home.sections.appointment.title')"
-      id="appointment"
-      :ui="{ container: '!pt-0 w-full' }"
-    >
-      <LandingAppointments />
-    </UPageSection>
-
-    <!-- <UPageSection
-      id="blog"
-      :title="t('home.sections.blog.title')"
-      :description="t('home.sections.blog.description')"
-    >
       <LandingBlogs />
-    </UPageSection> -->
+    </UPageSection>
 
     <!-- FAQ Section -->
     <LandingFAQ :page />

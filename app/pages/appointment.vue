@@ -52,7 +52,7 @@ const drToPlanFeatures = computed(() => {
 </script>
 
 <template>
-  <UContainer  class="my-8">
+  <UContainer :dir="useDir().value" class="my-8">
     <UPricingPlan
 
     v-if="data"

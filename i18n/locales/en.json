@@ -1,4 +1,5 @@
 {
+  "banner":"Working hours: Sat–Wed, 7 AM to 7 PM - Phone: 031-0000000",
   "basic": {
     "dr":"Dr Ramin Sami",
     "home": "Home",
@@ -189,6 +190,34 @@
       "successfulAppointments": "{count} successful appointments",
       "userRecommendations": "{percent}% user recommendations",
       "waitingTime": "{time} average waiting time"
+    }
+  },
+   "blog": {
+    "posts": {
+      "bronchitis": {
+        "title": "What Is Bronchitis and How Is It Treated?",
+        "description": "Bronchitis, the inflammation of the bronchial tubes in the lungs, is one of the most common causes of coughing. This article explores its symptoms, causes, and the latest treatment methods.",
+        "imageAlt": "Microscopic image of human lung tissue"
+      },
+      "asthma": {
+        "title": "5 Key Strategies for Managing and Controlling Asthma",
+        "description": "Living with asthma can be challenging, but with the right strategies it can be well‑managed. This article offers practical tips to improve your quality of life.",
+        "imageAlt": "Person using an asthma inhaler"
+      },
+      "longCovid": {
+        "title": "Respiratory Effects of Long COVID",
+        "description": "Many COVID‑19 survivors still struggle with respiratory complications. This article reviews symptoms and treatment approaches for Long COVID.",
+        "imageAlt": "Conceptual image of the coronavirus and lungs"
+      },
+      "quittingSmoking": {
+        "title": "Quitting Smoking: The Best Gift to Your Lungs",
+        "description": "Quitting smoking provides countless health benefits for your lungs and entire body. Learn the key steps and tips for success on this journey.",
+        "imageAlt": "Person breaking a cigarette as a symbol of quitting"
+      }
+    },
+    "meta": {
+      "sectionTitle": "Patient Education",
+      "sectionDescription": "Read up‑to‑date, science‑based articles to enhance your understanding of lung health and respiratory diseases."
     }
   }
 }

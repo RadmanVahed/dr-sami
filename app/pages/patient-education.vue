@@ -1,7 +1,4 @@
 <script setup lang="ts">
-const dir = useDir().value
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Pagination, Navigation, Autoplay } from 'swiper/modules'
 const { t } = useI18n()
 const localePath = useLocalePath()
 
@@ -72,18 +69,14 @@ function formattedDate(dateString: string) {
 }
 </script>
 <template>
-  <UContainer :dir="useDir().value">
-    <Swiper :modules="[Pagination, Navigation, Autoplay]"
-      :slides-per-view="$device.isDesktop ? 3 : $device.isTablet ? 2 : 1" :space-between="50" autoplay loop
-      :navigation="$device.isDesktopOrTablet" :pagination="{ clickable: true, dynamicBullets: true }" class="my-12">
-      <SwiperSlide class="py-4" v-for="(item, index) in blogPosts" :key="index">
-        <ClientOnly>
-          <UBlogPost :to="item.slug" :title="item.title" :description="item.description" :image="item.image"
-            :date="formattedDate(item.date)" :authors="item.authors" orientation="vertical" :ui="{
-              description: 'line-clamp-3'
-            }" class="min-h-[465.25px]" />
-        </ClientOnly>
-      </SwiperSlide>
-    </Swiper>
+  <UContainer>
+    <UPageGrid>
+      <div class="my-4" v-for="item in blogPosts">
+        <UBlogPost :to="item.slug" :title="item.title" :description="item.description" :image="item.image"
+          :date="formattedDate(item.date)" :authors="item.authors" orientation="vertical" :ui="{
+            description: 'line-clamp-3'
+          }" class="min-h-[465.25px]" />
+      </div>
+    </UPageGrid>
   </UContainer>
 </template>
