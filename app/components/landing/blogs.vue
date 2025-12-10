@@ -78,7 +78,7 @@ function formattedDate(dateString: string) {
       :navigation="$device.isDesktopOrTablet" :pagination="{ clickable: true, dynamicBullets: true }" class="my-12">
       <SwiperSlide class="py-4" v-for="(item, index) in blogPosts" :key="index">
         <ClientOnly>
-          <UBlogPost :to="item.slug" :title="item.title" :description="item.description" :image="item.image"
+          <UBlogPost :to="localePath(item.slug)" :title="item.title" :description="item.description" :image="item.image"
             :date="formattedDate(item.date)" :authors="item.authors" orientation="vertical" :ui="{
               description: 'line-clamp-3'
             }" class="min-h-[465.25px]" />

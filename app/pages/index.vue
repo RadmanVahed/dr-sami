@@ -57,7 +57,7 @@ const authors = ref([
       <LandingServices />
     </UPageSection>
 
-    <UPageSection :title="t('home.sections.appointment.title')" id="appointment" :ui="{ container: '!pt-0 w-full' }">
+    <UPageSection :title="t('home.sections.appointment.title')" id="appointment" :ui="{ container: '!pt-0 !pb-0 w-full' }">
       <LandingAppointments />
     </UPageSection>
 

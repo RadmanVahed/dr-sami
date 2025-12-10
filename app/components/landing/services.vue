@@ -3,16 +3,16 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Pagination, Navigation , Autoplay } from 'swiper/modules'
 
 const { t } = useI18n()
-
+const localePath = useLocalePath()
 const services = [
-  { key: 'asthmaAllergy', to: '/services/asthma-allergy', image: '/images/services/asthma-allergy.png' },
-  { key: 'copd', to: '/services/copd', image: '/images/services/copd.png' },
-  { key: 'bronchoscopy', to: '/services/bronchoscopy', image: '/images/services/bronchoscopy.png' },
-  { key: 'spirometry', to: '/services/spirometry', image: '/images/services/spirometry.png' },
-  { key: 'ildFibrosis', to: '/services/ild-fibrosis', image: '/images/services/ild-fibrosis.png' },
-  { key: 'sleepApnea', to: '/services/sleep-apnea', image: '/images/services/sleep-apnea.png' },
-  { key: 'cancerScreening', to: '/services/lung-cancer-screening', image: '/images/services/lung-cancer-screening.png' },
-  { key: 'consultation', to: '/services/consultation', image: '/images/services/consultation.png' }
+  { key: 'asthmaAllergy', to: '/service/asthma-allergy', image: '/images/services/asthma-allergy.png' },
+  { key: 'copd', to: '/service/copd', image: '/images/services/copd.png' },
+  { key: 'bronchoscopy', to: '/service/bronchoscopy', image: '/images/services/bronchoscopy.png' },
+  { key: 'spirometry', to: '/service/spirometry', image: '/images/services/spirometry.png' },
+  { key: 'ildFibrosis', to: '/service/ild-fibrosis', image: '/images/services/ild-fibrosis.png' },
+  { key: 'sleepApnea', to: '/service/sleep-apnea', image: '/images/services/sleep-apnea.png' },
+  { key: 'cancerScreening', to: '/service/lung-cancer-screening', image: '/images/services/lung-cancer-screening.png' },
+  { key: 'consultation', to: '/service/consultation', image: '/images/services/consultation.png' }
 ]
 </script>
 
@@ -23,7 +23,7 @@ const services = [
       :pagination="{ clickable: true, dynamicBullets: true }" class="my-12">
       <SwiperSlide class="py-2" v-for="item in services" :key="item.key">
         <ClientOnly>
-          <UPageCard class="m-2 min-h-[536px]" :title="t(`services.list.${item.key}.title`)" :to="item.to"
+          <UPageCard class="m-2 min-h-[536px]" :title="t(`services.list.${item.key}.title`)" :to="localePath(item.to)"
             :ui="{ title: 'text-xl line-clamp-2', header: 'w-full' }">
             <template #header>
               <NuxtImg :src="item.image" :alt="t(`services.list.${item.key}.title`)"

@@ -21,7 +21,7 @@ const localePath = useLocalePath()
     <UNavigationMenu variant="link" :dir="useDir().value" :items="[
       { label: t('basic.services'), to: localePath('/services') },
       { label: t('navigation.appointment'), to: localePath('/appointment') },
-      { label: t('navigation.medicalEducation'), to: '/' },
+      { label: t('navigation.medicalEducation'), to: localePath('/education') },
       { label: t('navigation.patientEducation'), to: localePath('/patient-education') },
       { label: t('navigation.aboutDoctor'), to: localePath('/about') },
       { label: t('navigation.contact'), to: localePath('/contact') }

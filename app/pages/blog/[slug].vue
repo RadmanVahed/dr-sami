@@ -1,7 +1,7 @@
 <script setup lang="ts">
+const route = useRoute()
 const { t } = useI18n()
 const localePath = useLocalePath()
-
 const authors = [
   {
     name: t('basic.dr'),
@@ -12,7 +12,6 @@ const authors = [
     to: localePath('/about')
   }
 ]
-
 const blogPosts = [
   {
     slug: '/blog/bronchitis-treatment',
@@ -59,24 +58,39 @@ const blogPosts = [
     authors
   }
 ]
+const selectedService = blogPosts.find((i) => i.slug == '/blog/' + route.params.slug)
 
-function formattedDate(dateString: string) {
-  return new Date(dateString).toLocaleDateString('fa-IR', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  })
+if (!selectedService) {
+  throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
 </script>
 <template>
-  <UContainer :dir="useDir().value">
-    <UPageGrid>
-      <div class="my-4" v-for="item in blogPosts">
-        <UBlogPost :to="localePath(item.slug)" :title="item.title" :description="item.description" :image="item.image"
-          :date="formattedDate(item.date)" :authors="item.authors" orientation="vertical" :ui="{
-            description: 'line-clamp-3'
-          }" class="min-h-[465.25px]" />
-      </div>
-    </UPageGrid>
+  <UContainer :dir="useDir().value" class="mt-8">
+    <UChangelogVersion :title="selectedService.title" :description="selectedService.description" :indicator="false">
+      <template #image>
+        <div class="h_iframe-aparat_embed_frame"><span style="display: block;padding-top: 57%"></span><iframe
+            src="https://www.aparat.com/video/video/embed/videohash/civ9p18/vt/frame" allowFullScreen="true"
+            webkitallowfullscreen="true" mozallowfullscreen="true"></iframe></div>
+      </template>
+    </UChangelogVersion>
   </UContainer>
 </template>
+<style scoped>
+.h_iframe-aparat_embed_frame {
+  position: relative;
+}
+
+.h_iframe-aparat_embed_frame .ratio {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.h_iframe-aparat_embed_frame iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
