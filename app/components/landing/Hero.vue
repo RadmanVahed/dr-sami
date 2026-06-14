@@ -95,7 +95,7 @@ const dir = useDir().value
             filter: 'blur(0px)'
           }" :transition="{
             duration: 0.6,
-            delay: 0.5 + index * 0.1
+            delay: 0.5 + (index as number) * 0.1
           }">
           <UButton v-bind="{ size: 'xl', color: 'neutral', variant: 'ghost', ...link }" />
         </Motion>

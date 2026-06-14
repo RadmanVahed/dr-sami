@@ -194,30 +194,31 @@ ssr: true,
   //   credits: false
   // },
 
+  colorMode: {
+    preference: 'system',
+    fallback: 'light'
+  },
+
   i18n: {
     strategy: 'prefix_except_default',
     langDir: 'locales',
     locales: [
-      {
-        code: 'en',
-        iso: 'en-US',
-        name: 'English',
-        file: 'en.json',
-        dir: 'ltr'
-      },
       {
         code: 'fa',
         iso: 'fa-IR',
         name: 'فارسی',
         file: 'fa.json',
         dir: 'rtl'
+      },
+      {
+        code: 'en',
+        iso: 'en-US',
+        name: 'English',
+        file: 'en.json',
+        dir: 'ltr'
       }
     ],
     defaultLocale: 'fa',
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root'
-    }
+    detectBrowserLanguage: false
   }
 })

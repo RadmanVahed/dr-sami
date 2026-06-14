@@ -1,7 +1,10 @@
 <script setup lang="ts">
 const colorMode = useColorMode()
+const { locale } = useI18n()
 
 const color = computed(() => colorMode.value === 'dark' ? '#020618' : 'white')
+const htmlLang = computed(() => locale.value)
+const htmlDir = computed(() => (locale.value === 'fa' ? 'rtl' : 'ltr'))
 
 useHead({
   meta: [
@@ -13,7 +16,8 @@ useHead({
     { rel: 'icon', href: '/favicon.ico' }
   ],
   htmlAttrs: {
-    lang: 'en'
+    lang: htmlLang,
+    dir: htmlDir
   }
 })
 useFont()

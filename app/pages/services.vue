@@ -5,48 +5,7 @@ useHead({
   title: t('services.pageTitle')
 })
 
-const services = [
-  {
-    key: 'asthmaAllergy',
-    to: '/service/asthma-allergy',
-    image: '/images/services/asthma-allergy.png'
-  },
-  {
-    key: 'copd',
-    to: '/service/copd',
-    image: '/images/services/copd.png'
-  },
-  {
-    key: 'bronchoscopy',
-    to: '/service/bronchoscopy',
-    image: '/images/services/bronchoscopy.png'
-  },
-  {
-    key: 'spirometry',
-    to: '/service/spirometry',
-    image: '/images/services/spirometry.png'
-  },
-  {
-    key: 'ildFibrosis',
-    to: '/service/ild-fibrosis',
-    image: '/images/services/ild-fibrosis.png'
-  },
-  {
-    key: 'sleepApnea',
-    to: '/service/sleep-apnea',
-    image: '/images/services/sleep-apnea.png'
-  },
-  {
-    key: 'cancerScreening',
-    to: '/service/lung-cancer-screening',
-    image: '/images/services/lung-cancer-screening.png'
-  },
-  {
-    key: 'consultation',
-    to: '/service/consultation',
-    image: '/images/services/consultation.png'
-  }
-]
+const { services } = useServices()
 </script>
 
 <template>

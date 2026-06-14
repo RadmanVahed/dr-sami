@@ -7,7 +7,7 @@
     "dev": "nuxt dev",
     "start": "node .output/server/index.mjs",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+    "postinstall": "nuxt prepare && node scripts/fix-sharp.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "nuxt typecheck",
@@ -39,6 +39,12 @@
   },
   "resolutions": {
     "unimport": "4.1.1"
+  },
+  "overrides": {
+    "sharp": "$sharp",
+    "ipx": {
+      "sharp": "$sharp"
+    }
   },
   "packageManager": "pnpm@10.17.1"
 }

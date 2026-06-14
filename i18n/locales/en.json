@@ -41,14 +41,16 @@
     "sections": {
       "services": {
         "title": "Specialized Services",
-        "description": "We provide a wide range of diagnostic and therapeutic services for various pulmonary and respiratory diseases, using modern equipment and up-to-date medical knowledge."
+        "description": "We provide a wide range of diagnostic and therapeutic services for various pulmonary and respiratory diseases, using modern equipment and up-to-date medical knowledge.",
+        "cta": "View service details"
       },
       "appointment": {
         "title": "Online Appointment Booking"
       },
       "blog": {
         "title": "Patient Education",
-        "description": "Read up-to-date scientific articles to improve your knowledge about lung health and respiratory diseases."
+        "description": "Read up-to-date scientific articles to improve your knowledge about lung health and respiratory diseases.",
+        "cta": "Read article"
       },
       "faq": {
         "title": "Frequently Asked Questions"
