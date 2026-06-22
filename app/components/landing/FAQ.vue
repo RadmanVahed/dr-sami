@@ -4,14 +4,16 @@ const props = defineProps<{
   page: any
 }>()
 
+const faq = computed(() => props.page?.body?.faq ?? props.page?.meta?.faq)
+
 const items = computed(() => {
-  return props.page.body.faq?.categories.map((faq:any) => {
+  return faq.value?.categories?.map((category: any) => {
     return {
-      label: faq.title,
-      key: faq.title.toLowerCase(),
-      questions: faq.questions
+      label: category.title,
+      key: category.title.toLowerCase(),
+      questions: category.questions
     }
-  })
+  }) ?? []
 })
 
 const ui = {
@@ -25,9 +27,10 @@ const ui = {
 
 <template>
   <UPageSection
-   :dir="useDir().value"
-    :title="page.body.faq.title"
-    :description="page.body.faq.description"
+    v-if="faq"
+    :dir="useDir().value"
+    :title="faq.title"
+    :description="faq.description"
     :ui="{
       container: 'px-2 !pt-0 gap-4 sm:gap-4',
       title: ' text-xl sm:text-xl lg:text-2xl font-medium',
@@ -37,13 +40,13 @@ const ui = {
     <UTabs
       :items
       orientation="horizontal"
-       :dir="useDir().value"
+      :dir="useDir().value"
       :ui
     >
       <template #content="{ item }">
         <UAccordion
-        class="mx-1"
-         :dir="useDir().value"
+          class="mx-1"
+          :dir="useDir().value"
           trailing-icon="lucide:plus"
           :items="item.questions"
           :unmount-on-hide="false"
@@ -53,9 +56,7 @@ const ui = {
             trailingIcon: 'group-data-[state=closed]:rotate-0 group-data-[state=open]:rotate-135 text-base text-muted',
 
           }"
-        >
-
-        </UAccordion>
+        />
       </template>
     </UTabs>
   </UPageSection>
