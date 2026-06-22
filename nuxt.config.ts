@@ -199,6 +199,13 @@ ssr: true,
     fallback: 'light'
   },
 
+  content: {
+    database: {
+      type: 'sqlite',
+      filename: '.data/content/contents.sqlite'
+    }
+  },
+
   i18n: {
     strategy: 'prefix_except_default',
     langDir: 'locales',

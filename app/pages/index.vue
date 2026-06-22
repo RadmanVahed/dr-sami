@@ -1,29 +1,35 @@
 <script setup lang="ts">
 import type { Collections } from '@nuxt/content'
-import { useI18n } from 'vue-i18n'
-import { useRoute } from 'vue-router'
-import { withLeadingSlash } from 'ufo'
 import type { ButtonProps } from '@nuxt/ui'
 
-const route = useRoute()
 const { locale, t } = useI18n()
-const slug = computed(() => withLeadingSlash(String(locale.value)))
+const collection = computed(() => (locale.value || 'fa') as keyof Collections)
 
-const { data: page } = await useAsyncData('page-' + locale.value, async () => {
-  const l = locale.value as keyof Collections
-  const content = await queryCollection(l).path(`/${l}/`).first()
-  return content
-}, { watch: [locale] })
+async function fetchHomePage(localeCode: keyof Collections) {
+  return await queryCollection(localeCode).path(`/${localeCode}`).first()
+    ?? await queryCollection(localeCode).where('stem', '=', `${localeCode}/index`).first()
+}
+
+const { data: page } = await useAsyncData(
+  () => `page-${collection.value}`,
+  () => fetchHomePage(collection.value),
+  {
+    watch: [locale],
+    getCachedData(key, nuxtApp) {
+      return nuxtApp.payload.data[key] ?? nuxtApp.static.data[key]
+    }
+  }
+)
 
 if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
 
 useSeoMeta({
-  title: page.value?.seo.title || page.value?.title,
-  ogTitle: page.value?.seo.title || page.value?.title,
-  description: page.value?.seo.description || page.value?.description,
-  ogDescription: page.value?.seo.description || page.value?.description
+  title: page.value?.seo?.title || page.value?.title,
+  ogTitle: page.value?.seo?.title || page.value?.title,
+  description: page.value?.seo?.description || page.value?.description,
+  ogDescription: page.value?.seo?.description || page.value?.description
 })
 
 const links = ref<ButtonProps[]>([
