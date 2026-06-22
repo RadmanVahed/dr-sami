@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
+    "build": "nuxt build && node scripts/fix-sharp.js --output",
     "dev": "nuxt dev",
     "start": "node .output/server/index.mjs",
     "preview": "nuxt preview",
@@ -48,6 +48,10 @@
   },
   "packageManager": "pnpm@10.17.1",
   "pnpm": {
+    "overrides": {
+      "sharp": "$sharp",
+      "ipx>sharp": "$sharp"
+    },
     "onlyBuiltDependencies": [
       "@parcel/watcher",
       "better-sqlite3",

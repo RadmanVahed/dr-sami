@@ -208,6 +208,17 @@ ssr: true,
     }
   },
 
+  image: {
+    ipx: {
+      fs: {
+        dir: [
+          join(process.cwd(), 'public'),
+          join(process.cwd(), '.output/public')
+        ]
+      }
+    }
+  },
+
   i18n: {
     strategy: 'prefix_except_default',
     langDir: 'locales',
