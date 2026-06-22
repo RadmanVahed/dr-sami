@@ -16,6 +16,9 @@ const { data: page } = await useAsyncData(
   {
     watch: [locale],
     getCachedData(key, nuxtApp) {
+      if (import.meta.server) {
+        return
+      }
       return nuxtApp.payload.data[key] ?? nuxtApp.static.data[key]
     }
   }
@@ -81,6 +84,6 @@ const authors = ref([
     </UPageSection>
 
     <!-- FAQ Section -->
-    <LandingFAQ :page />
+    <LandingFAQ v-if="page?.body?.faq" :page />
   </UPage>
 </template>

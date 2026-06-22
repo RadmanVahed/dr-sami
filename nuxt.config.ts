@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { join } from 'node:path'
+
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
@@ -202,7 +204,7 @@ ssr: true,
   content: {
     database: {
       type: 'sqlite',
-      filename: '.data/content/contents.sqlite'
+      filename: join(process.cwd(), '.data/content/contents.sqlite')
     }
   },
 
