@@ -26,6 +26,7 @@
     "date-fns": "^4.1.0",
     "motion-v": "^1.7.2",
     "nuxt": "^4.1.2",
+    "@img/sharp-wasm32": "0.34.5",
     "sharp": "^0.34.5",
     "swiper": "^12.0.3",
     "zod": "^4.1.12"
@@ -33,6 +34,8 @@
   "devDependencies": {
     "@nuxt/eslint": "^1.9.0",
     "eslint": "^9.36.0",
+    "node-addon-api": "^8.8.0",
+    "node-gyp": "^13.0.0",
     "gh-pages": "^6.3.0",
     "typescript": "^5.9.2",
     "vue-tsc": "^3.1.3"
