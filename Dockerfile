@@ -9,10 +9,10 @@ RUN echo "deb https://repo.abrha.net/debian bookworm main contrib non-free non-f
     echo "deb https://repo.abrha.net/debian bookworm-backports main contrib non-free non-free-firmware" >> /etc/apt/sources.list && \
     echo "deb https://repo.abrha.net/debian-security bookworm-security main contrib non-free non-free-firmware" >> /etc/apt/sources.list
 
-# وابستگی‌های زمان اجرا برای better-sqlite3
+# وابستگی‌های زمان اجرا برای better-sqlite3 و sharp (libvips)
 RUN apt-get update -o Acquire::AllowInsecureRepositories=true -o Acquire::AllowDowngradeToInsecureRepositories=true && \
     apt-get install -y --allow-unauthenticated --no-install-recommends \
-    libsqlite3-0 && \
+    libsqlite3-0 libvips42 && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
@@ -32,7 +32,7 @@ FROM base AS build-base
 
 RUN apt-get update -o Acquire::AllowInsecureRepositories=true -o Acquire::AllowDowngradeToInsecureRepositories=true && \
     apt-get install -y --allow-unauthenticated --no-install-recommends \
-    python3 make g++ libsqlite3-dev && \
+    python3 make g++ libsqlite3-dev libvips-dev && \
     rm -rf /var/lib/apt/lists/*
 
 # -----------------------------------------------------------------------------
@@ -42,7 +42,12 @@ FROM build-base AS deps
 
 COPY package.json pnpm-lock.yaml .npmrc ./
 COPY scripts/fix-sharp.js ./scripts/fix-sharp.js
-RUN pnpm install --frozen-lockfile --unsafe-perm
+
+# Build sharp from source for older CPUs (x86-64-v1) that cannot use prebuilt binaries.
+ENV npm_config_build_from_source=true
+ENV SHARP_FORCE_GLOBAL_LIBVIPS=1
+RUN pnpm install --frozen-lockfile --unsafe-perm && \
+    pnpm rebuild sharp
 
 # -----------------------------------------------------------------------------
 # Build
