@@ -41,7 +41,6 @@ RUN apt-get update -o Acquire::AllowInsecureRepositories=true -o Acquire::AllowD
 FROM build-base AS deps
 
 COPY package.json pnpm-lock.yaml .npmrc ./
-COPY scripts/fix-sharp.js ./scripts/fix-sharp.js
 RUN pnpm install --frozen-lockfile --unsafe-perm
 
 # -----------------------------------------------------------------------------
