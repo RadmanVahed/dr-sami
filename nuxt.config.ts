@@ -209,14 +209,10 @@ ssr: true,
   },
 
   image: {
-    ipx: {
-      fs: {
-        dir: [
-          join(process.cwd(), 'public'),
-          join(process.cwd(), '.output/public')
-        ]
-      }
-    }
+    // Static images only — no IPX/sharp at runtime (required for older CPUs
+    // without x86-64-v2 or Wasm SIMD on the deployment server).
+    provider: 'none',
+    quality: 85
   },
 
   i18n: {
