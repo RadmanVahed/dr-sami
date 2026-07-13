@@ -1,18 +1,26 @@
 <script setup lang="ts">
-import type { Collections } from '@nuxt/content'
 import type { AboutPageContent } from '~/components/about/AboutDoctorPage.vue'
 
 const { locale, t } = useI18n()
 
+async function fetchAboutPage(localeCode: string) {
+  return await $fetch('/api/content/about', {
+    query: { locale: localeCode }
+  })
+}
+
 const { data: page } = await useAsyncData(
-  `about-${locale.value}`,
-  async () => {
-    const collection = locale.value as keyof Collections
-    return await queryCollection(collection)
-      .path(`/${locale.value}/about`)
-      .first()
-  },
-  { watch: [locale] }
+  () => `about-${locale.value}`,
+  () => fetchAboutPage(locale.value),
+  {
+    watch: [locale],
+    getCachedData(key, nuxtApp) {
+      if (import.meta.server) {
+        return
+      }
+      return nuxtApp.payload.data[key] ?? nuxtApp.static.data[key]
+    }
+  }
 )
 
 if (!page.value) {
