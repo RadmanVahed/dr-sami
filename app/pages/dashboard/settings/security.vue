@@ -1,57 +1,108 @@
 <script setup lang="ts">
 import * as z from 'zod'
-import type { FormError } from '@nuxt/ui'
+import type { FormSubmitEvent, FormError } from '@nuxt/ui'
 
 const { t } = useI18n()
+const toast = useToast()
+const saving = ref(false)
 
-const makePasswordSchema = (tFn: typeof t) => z.object({
-  current: z.string({
-    error: tFn('validations.error')
-  }).min(8, tFn('validations.minPassword')),
-  new: z.string({
-    error: tFn('validations.error')
-  }).min(8, tFn('validations.minPassword'))
-})
+const schema = computed(() => z.object({
+  current: z.string().min(1, t('validations.error')),
+  new: z.string().min(4, t('validations.short'))
+}))
 
-const passwordSchema = computed(() => makePasswordSchema(t))
+type Schema = z.infer<ReturnType<typeof schema.value>>
 
-type PasswordSchema = z.infer<ReturnType<typeof makePasswordSchema>>
-
-const password = reactive<Partial<PasswordSchema>>({
+const password = reactive<Partial<Schema>>({
   current: '',
   new: ''
 })
-const validate = (state: Partial<PasswordSchema>): FormError[] => {
+
+const validate = (state: Partial<Schema>): FormError[] => {
   const errors: FormError[] = []
   if (state.current && state.new && state.current === state.new) {
     errors.push({ name: 'new', message: t('validations.uniquePassword') })
   }
   return errors
 }
+
+async function onSubmit(event: FormSubmitEvent<Schema>) {
+  saving.value = true
+  try {
+    await $fetch('/api/admin/password', {
+      method: 'PUT',
+      body: {
+        currentPassword: event.data.current,
+        newPassword: event.data.new
+      }
+    })
+    toast.add({ title: t('dashboard.messages.passwordChanged'), color: 'success' })
+    password.current = ''
+    password.new = ''
+  } catch (err: any) {
+    toast.add({
+      title: t('dashboard.messages.saveError'),
+      description: err?.data?.statusMessage,
+      color: 'error'
+    })
+  } finally {
+    saving.value = false
+  }
+}
 </script>
 
 <template>
-  <UPageCard :title="t('basic.password')" :description="t('dashboard.security.label')" variant="subtle">
-    <UForm :schema="passwordSchema" :state="password" :validate="validate" class="flex flex-col gap-4 max-w-xs">
-      <UFormField name="current" :label="t('basic.current')">
-        <UInput
-          v-model="password.current"
-          type="password"
-          :placeholder="t('dashboard.security.currentPassword')"
-          class="w-full"
-        />
-      </UFormField>
+  <UDashboardPanel id="security">
+    <template #header>
+      <UDashboardNavbar :title="t('dashboard.menu.settings')">
+        <template #leading>
+          <UDashboardSidebarCollapse />
+        </template>
+      </UDashboardNavbar>
+    </template>
 
-      <UFormField name="new" :label="t('basic.new')">
-        <UInput
-          v-model="password.new"
-          type="password"
-          :placeholder="t('dashboard.security.newPassword')"
-          class="w-full"
-        />
-      </UFormField>
+    <template #body>
+      <div class="p-4">
+        <UPageCard
+          :title="t('basic.password')"
+          :description="t('dashboard.security.label')"
+          variant="subtle"
+          class="max-w-lg"
+        >
+          <UForm
+            :schema="schema"
+            :state="password"
+            :validate="validate"
+            class="flex flex-col gap-4"
+            @submit="onSubmit"
+          >
+            <UFormField name="current" :label="t('basic.current')">
+              <UInput
+                v-model="password.current"
+                type="password"
+                :placeholder="t('dashboard.security.currentPassword')"
+                class="w-full"
+              />
+            </UFormField>
 
-      <UButton :label="t('basic.save')" class="w-fit" type="submit" />
-    </UForm>
-  </UPageCard>
+            <UFormField name="new" :label="t('basic.new')">
+              <UInput
+                v-model="password.new"
+                type="password"
+                :placeholder="t('dashboard.security.newPassword')"
+                class="w-full"
+              />
+            </UFormField>
+
+            <UButton
+              :label="t('basic.save')"
+              type="submit"
+              :loading="saving"
+              class="w-fit"
+            />
+          </UForm>
+        </UPageCard>
+      </div>
+    </template>
+  </UDashboardPanel>
 </template>

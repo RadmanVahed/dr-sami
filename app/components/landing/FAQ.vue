@@ -1,19 +1,18 @@
 <script setup lang="ts">
+const { t } = useI18n()
+const { getName, getQuestion, getAnswer } = useLocalizedField()
 
-const props = defineProps<{
-  page: any
-}>()
-
-const faq = computed(() => props.page?.body?.faq ?? props.page?.meta?.faq)
+const { data: faqCategories } = await useFetch('/api/content/faqs')
 
 const items = computed(() => {
-  return faq.value?.categories?.map((category: any) => {
-    return {
-      label: category.title,
-      key: category.title.toLowerCase(),
-      questions: category.questions
-    }
-  }) ?? []
+  return (faqCategories.value || []).map((cat: any) => ({
+    label: getName(cat),
+    key: cat.slug,
+    questions: (cat.questions || []).map((q: any) => ({
+      label: getQuestion(q),
+      content: getAnswer(q)
+    }))
+  }))
 })
 
 const ui = {
@@ -27,10 +26,9 @@ const ui = {
 
 <template>
   <UPageSection
-    v-if="faq"
     :dir="useDir().value"
-    :title="faq.title"
-    :description="faq.description"
+    :title="t('home.sections.faq.title')"
+    :description="t('dashboard.faq.publicDescription')"
     :ui="{
       container: 'px-2 !pt-0 gap-4 sm:gap-4',
       title: ' text-xl sm:text-xl lg:text-2xl font-medium',
@@ -38,23 +36,22 @@ const ui = {
     }"
   >
     <UTabs
-      :items
+      :items="items"
       orientation="horizontal"
       :dir="useDir().value"
-      :ui
+      :ui="ui"
     >
       <template #content="{ item }">
         <UAccordion
           class="mx-1"
           :dir="useDir().value"
-          trailing-icon="lucide:plus"
+          trailing-icon="i-lucide-plus"
           :items="item.questions"
           :unmount-on-hide="false"
           :ui="{
             item: 'border-none',
             trigger: 'mb-2 border-0 group px-4 transform-gpu rounded-lg bg-elevated/60 will-change-transform hover:bg-muted/50 text-base',
-            trailingIcon: 'group-data-[state=closed]:rotate-0 group-data-[state=open]:rotate-135 text-base text-muted',
-
+            trailingIcon: 'group-data-[state=closed]:rotate-0 group-data-[state=open]:rotate-135 text-base text-muted'
           }"
         />
       </template>

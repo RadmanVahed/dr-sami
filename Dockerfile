@@ -57,9 +57,10 @@ RUN pnpm run build
 FROM base AS runner
 
 ENV NODE_ENV=production
-
+ENV NUXT_DATA_DIR=/data
+VOLUME /data
 COPY --from=build /app/.output ./.output
-COPY --from=build /app/.data ./.data
+COPY --from=build /app/server/db/migrations ./server/db/migrations
 COPY --from=build /app/content ./content
 COPY --from=build /app/public ./public
 

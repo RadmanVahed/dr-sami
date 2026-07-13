@@ -1,26 +1,34 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const localePath = useLocalePath()
-useHead({
-  title: t('services.pageTitle')
-})
+const { services, posts } = useServices()
+const { getTitle, getDescription } = useLocalizedField()
 
-const { services } = useServices()
+useHead({ title: t('services.pageTitle') })
 </script>
 
 <template>
   <UContainer :dir="useDir().value" class="my-8">
     <UPageGrid>
-      <UPageCard v-for="(service, index) in services" :key="index" :title="t(`services.list.${service.key}.title`)"
-        :to="localePath(service.to)" :ui="{ title: 'text-xl' }">
+      <UPageCard
+        v-for="post in (posts || [])"
+        :key="post.slug"
+        :title="getTitle(post)"
+        :to="localePath(`/service/${post.slug}`)"
+        :ui="{ title: 'text-xl' }"
+      >
         <template #header>
-          <NuxtImg :src="service.image" :alt="t(`services.list.${service.key}.title`)"
-            class="w-full h-40 object-cover rounded-xl mb-4" format="webp" loading="lazy" />
+          <NuxtImg
+            :src="post.image || '/images/services/consultation.png'"
+            :alt="getTitle(post)"
+            class="mb-4 h-40 w-full rounded-xl object-cover"
+            format="webp"
+            loading="lazy"
+          />
         </template>
-
         <template #description>
           <span class="line-clamp-3 text-base text-gray-600 dark:text-gray-300">
-            {{ t(`services.list.${service.key}.description`) }}
+            {{ getDescription(post) }}
           </span>
         </template>
       </UPageCard>

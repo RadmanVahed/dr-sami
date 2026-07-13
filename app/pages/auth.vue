@@ -1,59 +1,71 @@
 <script setup lang="ts">
 import * as z from 'zod'
-import type { FormSubmitEvent, AuthFormField } from '@nuxt/ui'
+import type { FormSubmitEvent } from '@nuxt/ui'
 
+definePageMeta({
+  layout: 'auth'
+})
+
+const { t } = useI18n()
 const toast = useToast()
+const localePath = useLocalePath()
+const router = useRouter()
 
-setPageLayout('auth')
-
-const fields: AuthFormField[] = [{
+const fields = computed(() => [{
   name: 'username',
-  type: 'text',
-  label: 'username',
-  placeholder: 'Enter your username',
+  type: 'text' as const,
+  label: t('dashboard.auth.username'),
+  placeholder: t('dashboard.auth.usernamePlaceholder'),
   required: true
 }, {
   name: 'password',
-  label: 'Password',
-  type: 'password',
-  placeholder: 'Enter your password',
+  label: t('dashboard.auth.password'),
+  type: 'password' as const,
+  placeholder: t('dashboard.auth.passwordPlaceholder'),
   required: true
-}, {
-  name: 'remember',
-  label: 'Remember me',
-  type: 'checkbox'
-}]
+}])
 
-const schema = z.object({
-  username: z.string({
-    message:'username is required'
-  }),
-  password: z.string({
-    message:'Password is required'
-  }).min(8, 'Must be at least 8 characters')
-})
+const schema = computed(() => z.object({
+  username: z.string().min(1, t('validations.error')),
+  password: z.string().min(1, t('validations.error'))
+}))
 
-type Schema = z.output<typeof schema>
-  const localePath = useLocalePath()
-  const router = useRouter()
-function onSubmit(payload: FormSubmitEvent<Schema>) {
-  console.log('Submitted', payload)
-  router.push(localePath('/dashboard'))
+type Schema = {
+  username: string
+  password: string
+}
+
+const loading = ref(false)
+
+async function onSubmit(payload: FormSubmitEvent<Schema>) {
+  loading.value = true
+  try {
+    await $fetch('/api/auth/login', {
+      method: 'POST',
+      body: payload.data
+    })
+    toast.add({ title: t('dashboard.auth.loginSuccess'), color: 'success' })
+    router.push(localePath('/dashboard'))
+  } catch {
+    toast.add({ title: t('dashboard.auth.loginError'), color: 'error' })
+  } finally {
+    loading.value = false
+  }
 }
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-center gap-4 p-4">
+  <div class="flex flex-col items-center justify-center gap-4 p-4 min-h-[60vh]">
     <UPageCard class="w-full max-w-md">
       <UAuthForm
         :schema="schema"
-        title="Login"
-        description="Enter your credentials to access your account."
-        icon="i-lucide-user"
+        :title="t('dashboard.auth.title')"
+        :description="t('dashboard.auth.description')"
+        icon="i-lucide-shield-check"
         :fields="fields"
+        :loading="loading"
         @submit="onSubmit"
       />
     </UPageCard>
   </div>
 </template>
-

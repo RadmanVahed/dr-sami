@@ -4,9 +4,14 @@ export default defineAppConfig({
       image: '',
       alt: 'My profile picture'
     },
-    meetingLink: 'https://cal.com/',
+    meetingLink: 'https://doctoreto.com/doctor/dr-ramin-sami/GwLgoM',
     email: 'ui-pro@nuxt.com',
     available: true
+  },
+  icon: {
+    // Keep icon CSS in the Tailwind base layer (required for reliable CSS-mode icons)
+    mode: 'css',
+    cssLayer: 'base'
   },
   ui: {
     colors: {
@@ -25,14 +30,9 @@ export default defineAppConfig({
     colorMode: false,
     links: [{
       'icon': 'i-simple-icons-instagram',
-      'to': 'https://go.nuxt.com/discord',
+      'to': 'https://instagram.com/dr.ramin_sami',
       'target': '_blank',
       'aria-label': 'Dr Sami on Instagram'
-  },{
-      'icon': 'i-simple-icons-whatsapp',
-      'to': 'https://go.nuxt.com/discord',
-      'target': '_blank',
-      'aria-label': 'Dr Sami on Whatsapp'
-  }]
+    }]
   }
 })

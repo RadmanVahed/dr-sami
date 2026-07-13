@@ -5,66 +5,19 @@ import { Pagination, Navigation, Autoplay } from 'swiper/modules'
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const dir = useDir()
+const { getTitle, getDescription } = useLocalizedField()
+
+const { data: posts } = await useFetch('/api/content/posts', {
+  query: { section: 'patient' }
+})
 
 const swiperModules = [Pagination, Navigation, Autoplay]
 
-const authors = [
-  {
-    name: t('basic.dr'),
-    avatar: {
-      src: '/images/profilePic3.png',
-      alt: 'تصویر پروفایل دکتر'
-    },
-    to: localePath('/about')
-  }
-]
-
-const blogPosts = [
-  {
-    slug: '/blog/bronchitis-treatment',
-    title: t('blog.posts.bronchitis.title'),
-    description: t('blog.posts.bronchitis.description'),
-    image: {
-      src: '/images/blogs/lung-microscopy.png',
-      alt: t('blog.posts.bronchitis.imageAlt')
-    },
-    date: '2025-10-15',
-    authors
-  },
-  {
-    slug: '/blog/managing-asthma',
-    title: t('blog.posts.asthma.title'),
-    description: t('blog.posts.asthma.description'),
-    image: {
-      src: '/images/blogs/respiratory-spray-noun.png',
-      alt: t('blog.posts.asthma.imageAlt')
-    },
-    date: '2025-10-02',
-    authors
-  },
-  {
-    slug: '/blog/long-covid-respiratory-effects',
-    title: t('blog.posts.longCovid.title'),
-    description: t('blog.posts.longCovid.description'),
-    image: {
-      src: '/images/blogs/coronavirus.png',
-      alt: t('blog.posts.longCovid.imageAlt')
-    },
-    date: '2025-09-20',
-    authors
-  },
-  {
-    slug: '/blog/quitting-smoking-benefits',
-    title: t('blog.posts.quittingSmoking.title'),
-    description: t('blog.posts.quittingSmoking.description'),
-    image: {
-      src: '/images/blogs/quitting-smoking.png',
-      alt: t('blog.posts.quittingSmoking.imageAlt')
-    },
-    date: '2025-09-05',
-    authors
-  }
-]
+const authors = computed(() => [{
+  name: t('basic.dr'),
+  avatar: { src: '/images/profilePic3.png', alt: 'Doctor' },
+  to: localePath('/about')
+}])
 
 const navigationOptions = {
   prevEl: '.landing-blogs__nav-prev',
@@ -85,7 +38,7 @@ const paginationOptions = {
 }
 
 function formattedDate(dateString: string) {
-  return new Date(dateString).toLocaleDateString('fa-IR', {
+  return new Date(dateString).toLocaleDateString(locale.value === 'fa' ? 'fa-IR' : 'en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
@@ -97,7 +50,6 @@ function formattedDate(dateString: string) {
   <UContainer :dir="dir">
     <div class="landing-blogs__swiper my-12">
       <div
-        v-if="$device.isDesktopOrTablet"
         class="landing-blogs__nav mb-8 flex items-center gap-2"
         :class="dir === 'rtl' ? 'justify-end' : 'justify-start'"
       >
@@ -107,7 +59,7 @@ function formattedDate(dateString: string) {
           :aria-label="navPrevLabel"
         >
           <UIcon
-            :name="dir === 'rtl' ? 'i-heroicons-chevron-right' : 'i-heroicons-chevron-left'"
+            :name="dir === 'rtl' ? 'i-lucide-chevron-right' : 'i-lucide-chevron-left'"
             class="size-4"
           />
         </button>
@@ -117,7 +69,7 @@ function formattedDate(dateString: string) {
           :aria-label="navNextLabel"
         >
           <UIcon
-            :name="dir === 'rtl' ? 'i-heroicons-chevron-left' : 'i-heroicons-chevron-right'"
+            :name="dir === 'rtl' ? 'i-lucide-chevron-left' : 'i-lucide-chevron-right'"
             class="size-4"
           />
         </button>
@@ -130,18 +82,18 @@ function formattedDate(dateString: string) {
         :space-between="50"
         autoplay
         loop
-        :navigation="$device.isDesktopOrTablet ? navigationOptions : false"
+        :navigation="navigationOptions"
         :pagination="paginationOptions"
         class="landing-blogs-swiper"
       >
-        <SwiperSlide class="py-4" v-for="(item, index) in blogPosts" :key="index">
+        <SwiperSlide v-for="post in (posts || []).slice(0, 4)" :key="post.id" class="py-4">
           <ClientOnly>
             <UBlogPost
-              :title="item.title"
-              :description="item.description"
-              :image="item.image"
-              :date="formattedDate(item.date)"
-              :authors="item.authors"
+              :title="getTitle(post)"
+              :description="getDescription(post)"
+              :image="post.image ? { src: post.image, alt: getTitle(post) } : undefined"
+              :date="formattedDate(post.publishedAt)"
+              :authors="authors"
               orientation="vertical"
               class="min-h-[465.25px]"
               :ui="{
@@ -153,11 +105,11 @@ function formattedDate(dateString: string) {
               <template #footer>
                 <UButton
                   :label="t('home.sections.blog.cta')"
-                  :to="localePath(item.slug)"
+                  :to="localePath(`/patient-education/${post.slug}`)"
                   color="primary"
                   variant="soft"
                   block
-                  :trailing-icon="dir === 'rtl' ? 'i-heroicons-arrow-left' : 'i-heroicons-arrow-right'"
+                  :trailing-icon="dir === 'rtl' ? 'i-lucide-arrow-left' : 'i-lucide-arrow-right'"
                 />
               </template>
             </UBlogPost>

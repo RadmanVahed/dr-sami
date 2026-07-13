@@ -53,7 +53,12 @@ const drToPlanFeatures = computed(() => {
     :description="t('appointment.description')"
     :features="drToPlanFeatures"
     :tagline="drToFreeTime"
-    :button="{ label: t('appointment.buttonLabel') }"
+    :button="{
+      label: t('appointment.buttonLabel'),
+      to: 'https://doctoreto.com/doctor/dr-ramin-sami/GwLgoM',
+      target: '_blank',
+      external: true
+    }"
     orientation="horizontal"
   >
     <template #title>

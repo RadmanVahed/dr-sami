@@ -84,6 +84,6 @@ const authors = ref([
     </UPageSection>
 
     <!-- FAQ Section -->
-    <LandingFAQ v-if="page?.body?.faq" :page />
+    <LandingFAQ />
   </UPage>
 </template>

@@ -1,68 +1,44 @@
 <script setup lang="ts">
-import { sub } from 'date-fns'
-import type { DropdownMenuItem } from '@nuxt/ui'
+import type { DashboardStats } from '~/types/content'
+
 const { t } = useI18n()
-const { isNotificationsSlideoverOpen } = useDashboard()
 
-const items = [[{
-  label: t('dashboard.addService'),
-  icon: 'i-lucide-send',
-  to: '/inbox'
-}, {
-  label: t('dashboard.addPost'),
-  icon: 'i-lucide-user-plus',
-  to: '/customers'
-}]] satisfies DropdownMenuItem[][]
+const { data: stats } = await useFetch<DashboardStats>('/api/admin/stats')
 
-const range = shallowRef<any>({
-  start: sub(new Date(), { days: 14 }),
-  end: new Date()
-})
-const period = ref<any>('daily')
+const statCards = computed(() => [
+  { label: t('dashboard.menu.services'), value: stats.value?.services ?? 0, icon: 'i-lucide-stethoscope', color: 'primary' },
+  { label: t('dashboard.menu.blog'), value: stats.value?.blogs ?? 0, icon: 'i-lucide-newspaper', color: 'info' },
+  { label: t('dashboard.menu.medicalEducation'), value: stats.value?.medical ?? 0, icon: 'i-lucide-graduation-cap', color: 'success' },
+  { label: t('dashboard.menu.patientEducation'), value: stats.value?.patient ?? 0, icon: 'i-lucide-heart-pulse', color: 'warning' },
+  { label: t('dashboard.menu.faq'), value: stats.value?.faqs ?? 0, icon: 'i-lucide-circle-help', color: 'neutral' },
+  { label: t('dashboard.categories.title'), value: stats.value?.categories ?? 0, icon: 'i-lucide-folder-tree', color: 'neutral' }
+])
 </script>
 
 <template>
-  <UDashboardPanel id="home">
+  <UDashboardPanel id="overview">
     <template #header>
-      <UDashboardNavbar title="داشبورد" :ui="{ right: 'gap-3' }">
+      <UDashboardNavbar :title="t('dashboard.menu.overview')">
         <template #leading>
           <UDashboardSidebarCollapse />
         </template>
-
-        <template #right>
-          <UTooltip text="Notifications" :shortcuts="['N']">
-            <UButton
-              color="neutral"
-              variant="ghost"
-              square
-              @click="isNotificationsSlideoverOpen = true"
-            >
-              <UChip color="error" inset>
-                <UIcon name="i-lucide-bell" class="size-5 shrink-0" />
-              </UChip>
-            </UButton>
-          </UTooltip>
-
-          <UDropdownMenu :items="items">
-            <UButton icon="i-lucide-plus" size="md" class="rounded-full" />
-          </UDropdownMenu>
-        </template>
       </UDashboardNavbar>
-
-      <UDashboardToolbar>
-        <template #left>
-          <!-- NOTE: The `-ms-1` class is used to align with the `DashboardSidebarCollapse` button here. -->
-          <HomeDateRangePicker v-model="range" class="-ms-1" />
-
-          <HomePeriodSelect v-model="period" :range="range" />
-        </template>
-      </UDashboardToolbar>
     </template>
 
     <template #body>
-      <!-- <HomeStats :period="period" :range="range" />
-      <HomeChart :period="period" :range="range" />
-      <HomeSales :period="period" :range="range" /> -->
+      <div class="grid gap-4 p-4 sm:grid-cols-2 lg:grid-cols-3">
+        <UCard v-for="card in statCards" :key="card.label" class="p-4">
+          <div class="flex items-center gap-4">
+            <div class="flex size-12 items-center justify-center rounded-lg bg-elevated">
+              <UIcon :name="card.icon" class="size-6 text-primary" />
+            </div>
+            <div>
+              <p class="text-sm text-muted">{{ card.label }}</p>
+              <p class="text-2xl font-bold">{{ card.value }}</p>
+            </div>
+          </div>
+        </UCard>
+      </div>
     </template>
   </UDashboardPanel>
 </template>

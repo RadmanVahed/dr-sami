@@ -83,22 +83,28 @@ const dir = useDir().value
           duration: 0.6,
           delay: 0.5
         }">
-        <div v-if="page.body?.hero.links" class="flex items-center gap-2">
+        <div class="flex items-center justify-center gap-2">
           <UButton :label="t('basic.onlineAppointment')" size="xl" :to="localePath('/appointment')" color="info" />
-          <Motion v-for="(link, index) of footer?.links" :key="index" :initial="{
-          scale: 1.1,
-          opacity: 0,
-          filter: 'blur(20px)'
-        }" :animate="{
-            scale: 1,
-            opacity: 1,
-            filter: 'blur(0px)'
-          }" :transition="{
-            duration: 0.6,
-            delay: 0.5 + (index as number) * 0.1
-          }">
-          <UButton v-bind="{ size: 'xl', color: 'neutral', variant: 'ghost', ...link }" />
-        </Motion>
+          <Motion
+            v-for="(link, index) of footer?.links"
+            :key="index"
+            :initial="{
+              scale: 1.1,
+              opacity: 0,
+              filter: 'blur(20px)'
+            }"
+            :animate="{
+              scale: 1,
+              opacity: 1,
+              filter: 'blur(0px)'
+            }"
+            :transition="{
+              duration: 0.6,
+              delay: 0.5 + (index as number) * 0.1
+            }"
+          >
+            <UButton v-bind="{ size: 'xl', color: 'neutral', variant: 'ghost', ...link }" />
+          </Motion>
         </div>
       </Motion>
     </template>

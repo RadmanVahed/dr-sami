@@ -1,27 +1,121 @@
-title: About Me
-description: Learn more about my journey as a Boston-based UX/UI Designer & Front-End Developer, my design philosophy, and my passion for crafting intuitive digital experiences.
-content: |
-  Hi, I'm **Emma Thompson**, a UX/UI Designer and Front-End Developer based right here in Boston. For the past six years, I've been immersed in the world of digital product creation, focusing on building experiences that are not just functional, but genuinely intuitive and engaging for users.
+seo:
+  title: About Dr. Ramin Sami
+  description: Dr. Ramin Sami — Associate Professor of Pulmonary Medicine at Isfahan University of Medical Sciences; pulmonary & ICU subspecialist, national board top rank, and Head of Khorshid Hospital.
+title: About Dr. Ramin Sami
+description: Pulmonary & ICU Subspecialist | Associate Professor, Isfahan University of Medical Sciences
+intro: |
+  Dr. Ramin Sami is Associate Professor of Medicine in the Department of Pulmonary Disease at Isfahan University of Medical Sciences. After entering IUMS in 1994 and completing specialty and subspecialty training, he earned the national first rank on the Pulmonary Medicine Board from Shahid Beheshti University of Medical Sciences in 2011 and has served as a university faculty member since then.
 
-  My path started at **Boston University**, where I earned a degree in Interactive Design. It was there I discovered my dual passion for the visual language of design and the logical puzzle of code. Since then, I've honed my skills in both areas, believing that the best digital products are born from a deep understanding of both aesthetics and implementation.
-
-  ### My Design Philosophy
-
-  My design philosophy is rooted in **empathy** and **problem-solving**. I believe great design starts with understanding the 'why' – the user's needs, motivations, and pain points. I use research, iterative prototyping (often with tools like Figma), and user testing to ensure the solutions I build are truly effective.
-
-  I strive to create interfaces that feel effortless, where functionality and beauty work hand-in-hand. Whether I'm crafting pixel-perfect UIs or writing clean Vue.js/Nuxt.js code, my focus is always on creating value for the end-user.
-
-  ### What Drives Me
-
-  What keeps me excited about this work is the constant learning and the challenge of translating complex ideas into simple, elegant solutions. There's nothing more rewarding than seeing a design come to life and knowing it's making someone's digital interaction easier or more enjoyable.
-
-  ### Beyond the Screen
-
-  When I'm not designing or coding, you might find me exploring Boston's latest coffee shops, hiking nearby trails, or occasionally contributing to open-source projects.
-
-  Thanks for stopping by. Feel free to browse my [projects](/projects) or [get in touch](/#contact) if you'd like to collaborate!
-images:
-  - src: https://images.unsplash.com/photo-1744877478622-a78c7a3336f6?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-    alt: My coffee workspace
-  - src: https://images.unsplash.com/photo-1744429523595-2c06b8611242?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-    alt: My trip to Tokyo
+  His clinical expertise in respiratory diseases, interventional bronchoscopy, hospital leadership, and academic teaching makes care in his clinic precise, evidence-based, and carefully followed.
+image:
+  src: /images/profilePic.png
+  alt: Photo of Dr. Ramin Sami
+sections:
+  credentials: Education & Professional Background
+  whyChoose: Why seeing Dr. Ramin Sami can make a real difference
+  highlights: Key highlights
+  specialties: Areas of expertise & services
+credentials:
+  - Doctor of Medicine (MD) — Isfahan University of Medical Sciences (1994–2001)
+  - Residency in Internal Medicine — Shahid Sadoughi University of Medical Sciences, Yazd (2003–2007); 7th nationally on the Internal Medicine Board
+  - Postgraduate course in Upper GI Endoscopy (3 months) — SSUMS, Yazd (2007)
+  - Clinical fellowship in Pulmonary Disease — Shahid Beheshti University of Medical Sciences, Tehran (2009–2011); 1st nationally on the Pulmonary Medicine Board
+  - Interventional bronchoscopy course (6 months) — National Research Institute of Tuberculosis and Lung Diseases (NRITLD) (2011)
+  - Interventional bronchoscopy course (1 month) — Thoraxklinik, Heidelberg, Germany (2015)
+  - Faculty member, Qazvin University of Medical Sciences (2011–2015) and Isfahan University of Medical Sciences (2015–present)
+  - Head of Velayat Hospital, Qazvin (2012–2015) and Head of Khorshid Hospital, Isfahan (2017–present)
+  - Board member of the Iranian Society of Pulmonology and member of the national COVID-19 scientific committee
+  - Founder of interventional pulmonology units (Qazvin 2015, Isfahan 2017) and the pulmonary rehabilitation clinic in Isfahan (2019)
+highlights:
+  - icon: i-lucide-award
+    label: 1st rank, Pulmonary Board
+  - icon: i-lucide-graduation-cap
+    label: Associate Professor, IUMS
+  - icon: i-lucide-hospital
+    label: Head of Khorshid Hospital
+  - icon: i-lucide-stethoscope
+    label: Interventional bronchoscopy
+  - icon: i-lucide-book-open
+    label: Author of pulmonary references
+reasons:
+  - title: National-level academic excellence
+    description: Dr. Sami’s training and certifications reflect deep expertise in internal medicine, pulmonology, and critical care.
+    points:
+      - Ranked 12th in the national university entrance exam for medicine (1994)
+      - 7th on the national Internal Medicine Board and 1st on the national Pulmonary Medicine Board
+      - Advanced interventional bronchoscopy training in Iran and at Thoraxklinik Heidelberg, Germany
+  - title: Broad clinical and leadership experience
+    description: Years as a faculty member, hospital head, and national society leader bring a comprehensive view of diagnosis, treatment, and care organization.
+    points:
+      - University faculty since 2011 at Qazvin and Isfahan medical universities
+      - Head of Velayat Hospital (Qazvin) and Khorshid Hospital (Isfahan)
+      - Board of the Iranian Society of Pulmonology and national COVID-19 scientific committee
+  - title: Pioneer of advanced pulmonary services
+    description: Founding specialized units and clinics has expanded patient access to modern diagnostic and therapeutic methods.
+    points:
+      - Founder of interventional pulmonology sections in Qazvin and Isfahan
+      - Founder of the pulmonary rehabilitation clinic in Isfahan
+      - Patent for a mechanical-frequency vest for bronchiectasis treatment (2015)
+  - title: Evidence-based, teaching-driven care
+    description: University teaching, national guidelines, and international publications keep practice aligned with current science.
+    points:
+      - Pathophysiology and bedside teaching of pulmonary disease for students and residents
+      - Editor/author of resources on mechanical ventilation, oxygen therapy, national COPD guidelines, and COPD self-care
+      - Dozens of international papers and presentations at ERS congresses
+specialtiesIntro: |
+  Dr. Ramin Sami provides diagnostic, counseling, and therapeutic care for lung and respiratory diseases with a scientific, experience-based approach. From asthma and COPD to interventional bronchoscopy, sleep apnea, and lung cancer screening, care plans are tailored to each patient.
+specialties:
+  - title: Asthma & respiratory allergies
+    serviceSlug: asthma-allergy
+    items:
+      - Diagnosis and treatment of asthma in children and adults
+      - Management of respiratory allergies
+      - Symptom control and improved quality of life
+  - title: Chronic obstructive pulmonary disease (COPD)
+    serviceSlug: copd
+    items:
+      - Comprehensive COPD treatment planning
+      - Medication, pulmonary rehab, and self-care education
+      - Fewer exacerbations and slower disease progression
+  - title: Diagnostic & therapeutic bronchoscopy
+    serviceSlug: bronchoscopy
+    items:
+      - Interventional bronchoscopy with advanced equipment
+      - Biopsy and precise diagnosis
+      - Therapeutic airway procedures
+  - title: Pulmonary function tests (spirometry)
+    serviceSlug: spirometry
+    items:
+      - Assessment of lung capacity and function
+      - Support for accurate respiratory diagnosis
+      - Monitoring treatment progress
+  - title: Interstitial lung disease & fibrosis
+    serviceSlug: ild-fibrosis
+    items:
+      - Diagnosis and management of pulmonary fibrosis and ILD
+      - Slowing disease progression
+      - Preserving respiratory function
+  - title: Sleep-related breathing disorders
+    serviceSlug: sleep-apnea
+    items:
+      - Evaluation and treatment of sleep apnea
+      - Better sleep quality and less daytime fatigue
+      - Prevention of cardiovascular complications
+  - title: Early detection & lung cancer screening
+    serviceSlug: lung-cancer-screening
+    items:
+      - Screening for high-risk individuals
+      - Detection at earlier stages
+      - Greater chance of successful treatment
+  - title: Specialist pulmonary consultation & second opinion
+    serviceSlug: consultation
+    items:
+      - Preoperative consultation for major surgery
+      - Review of complex medical records (second opinion)
+      - Guidance toward the best treatment path
+cta:
+  services: View services
+  appointment: Book appointment
+  viewService: View service page
+  downloadResume: Download resume
+  subtitle: To start a specialist visit or explore pulmonary services, book your appointment now or download the full resume.

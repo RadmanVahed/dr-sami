@@ -1,27 +1,121 @@
-title: About Me
-description: Learn more about my journey as a Boston-based UX/UI Designer & Front-End Developer, my design philosophy, and my passion for crafting intuitive digital experiences.
-content: |
-  Hi, I'm **Emma Thompson**, a UX/UI Designer and Front-End Developer based right here in Boston. For the past six years, I've been immersed in the world of digital product creation, focusing on building experiences that are not just functional, but genuinely intuitive and engaging for users.
+seo:
+  title: درباره دکتر رامین سامی
+  description: دکتر رامین سامی، دانشیار بیماری‌های ریه دانشگاه علوم پزشکی اصفهان — فوق تخصص ریه و ICU، رتبه اول دانشنامه فوق تخصصی، ریاست بیمارستان خورشید و خدمات تخصصی تنفسی در اصفهان.
+title: درباره دکتر رامین سامی
+description: فوق تخصص بیماری‌های ریه و ICU | دانشیار دانشگاه علوم پزشکی اصفهان
+intro: |
+  دکتر رامین سامی دانشیار گروه بیماری‌های ریه دانشکده پزشکی دانشگاه علوم پزشکی اصفهان است. ایشان پس از ورود به دانشگاه علوم پزشکی اصفهان در سال ۱۳۷۳ و طی دوره‌های تخصصی و فوق تخصصی، در سال ۱۳۹۰ با کسب رتبه اول دانشنامه فوق تخصصی بیماری‌های ریه از دانشگاه علوم پزشکی شهید بهشتی تهران فارغ‌التحصیل شد و از همان زمان به‌عنوان هیئت علمی دانشگاه فعالیت می‌کند.
 
-  My path started at **Boston University**, where I earned a degree in Interactive Design. It was there I discovered my dual passion for the visual language of design and the logical puzzle of code. Since then, I've honed my skills in both areas, believing that the best digital products are born from a deep understanding of both aesthetics and implementation.
-
-  ### My Design Philosophy
-
-  My design philosophy is rooted in **empathy** and **problem-solving**. I believe great design starts with understanding the 'why' – the user's needs, motivations, and pain points. I use research, iterative prototyping (often with tools like Figma), and user testing to ensure the solutions I build are truly effective.
-
-  I strive to create interfaces that feel effortless, where functionality and beauty work hand-in-hand. Whether I'm crafting pixel-perfect UIs or writing clean Vue.js/Nuxt.js code, my focus is always on creating value for the end-user.
-
-  ### What Drives Me
-
-  What keeps me excited about this work is the constant learning and the challenge of translating complex ideas into simple, elegant solutions. There's nothing more rewarding than seeing a design come to life and knowing it's making someone's digital interaction easier or more enjoyable.
-
-  ### Beyond the Screen
-
-  When I'm not designing or coding, you might find me exploring Boston's latest coffee shops, hiking nearby trails, or occasionally contributing to open-source projects.
-
-  Thanks for stopping by. Feel free to browse my [projects](/projects) or [get in touch](/#contact) if you'd like to collaborate!
-images:
-  - src: https://images.unsplash.com/photo-1744877478622-a78c7a3336f6?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-    alt: My coffee workspace
-  - src: https://images.unsplash.com/photo-1744429523595-2c06b8611242?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-    alt: My trip to Tokyo
+  ترکیب تجربه بالینی گسترده در تشخیص و درمان بیماری‌های تنفسی، برونکوسکوپی مداخله‌ای، مدیریت بیمارستانی و آموزش دانشگاهی باعث می‌شود مراقبت در کلینیک ایشان علمی، دقیق و قابل پیگیری باشد.
+image:
+  src: /images/profilePic.png
+  alt: تصویر دکتر رامین سامی
+sections:
+  credentials: تحصیلات و سوابق حرفه‌ای
+  whyChoose: چرا مراجعه به دکتر رامین سامی می‌تواند برای شما نتیجه‌ساز باشد؟
+  highlights: ویژگی‌های برجسته
+  specialties: حوزه‌های تخصصی و خدمات
+credentials:
+  - دکترای حرفه‌ای پزشکی (MD) — دانشگاه علوم پزشکی اصفهان (۱۳۷۳–۱۳۸۰)
+  - تخصص بیماری‌های داخلی — دانشگاه علوم پزشکی شهید صدوقی یزد (۱۳۸۲–۱۳۸۶)؛ رتبه هفتم دانشنامه تخصصی داخلی کشور
+  - دوره کوتاه‌مدت آندوسکوپی فوقانی گوارش (۳ ماه) — دانشگاه علوم پزشکی شهید صدوقی یزد (۱۳۸۶)
+  - فوق تخصص بیماری‌های ریه — دانشگاه علوم پزشکی شهید بهشتی تهران (۱۳۸۸–۱۳۹۰)؛ رتبه اول دانشنامه فوق تخصصی ریه کشور
+  - دوره برونکوسکوپی مداخله‌ای (۶ ماه) — پژوهشکده ملی سل و بیماری‌های ریوی (NRITLD) (۱۳۹۰)
+  - دوره برونکوسکوپی مداخله‌ای (۱ ماه) — Thoraxklinik، هایدلبرگ، آلمان (۱۳۹۴)
+  - هیئت علمی دانشگاه علوم پزشکی قزوین (۱۳۹۰–۱۳۹۴) و دانشگاه علوم پزشکی اصفهان (۱۳۹۴ تاکنون)
+  - رئیس بیمارستان ولایت قزوین (۱۳۹۱–۱۳۹۴) و رئیس بیمارستان خورشید اصفهان (۱۳۹۶ تاکنون)
+  - عضو هیئت‌مدیره انجمن متخصصین ریه ایران و عضو کمیته علمی ملی کووید‑۱۹
+  - بنیان‌گذار بخش برونکوسکوپی مداخله‌ای (قزوین ۱۳۹۴ و اصفهان ۱۳۹۶) و کلینیک بازتوانی ریوی اصفهان (۱۳۹۸)
+highlights:
+  - icon: i-lucide-award
+    label: رتبه اول دانشنامه فوق تخصصی ریه
+  - icon: i-lucide-graduation-cap
+    label: دانشیار دانشگاه علوم پزشکی اصفهان
+  - icon: i-lucide-hospital
+    label: ریاست بیمارستان خورشید
+  - icon: i-lucide-stethoscope
+    label: برونکوسکوپی مداخله‌ای
+  - icon: i-lucide-book-open
+    label: مؤلف و مترجم منابع تخصصی ریه
+reasons:
+  - title: تخصص علمی در بالاترین سطح ملی
+    description: مسیر تحصیلی و گواهی‌های دکتر سامی نشان‌دهنده عمق دانش در بیماری‌های داخلی، ریه و مراقبت‌های ویژه است.
+    points:
+      - رتبه دوازدهم کنکور سراسری ورود به پزشکی (۱۳۷۳)
+      - رتبه هفتم دانشنامه تخصصی بیماری‌های داخلی و رتبه اول دانشنامه فوق تخصصی ریه در سطح کشور
+      - دوره‌های تخصصی برونکوسکوپی مداخله‌ای در ایران و Thoraxklinik هایدلبرگ آلمان
+  - title: تجربه بالینی و مدیریتی گسترده
+    description: سال‌ها فعالیت به‌عنوان هیئت علمی، رئیس بیمارستان و عضو انجمن‌های ملی، نگاه جامع به تشخیص، درمان و سازمان‌دهی مراقبت بیمار ایجاد کرده است.
+    points:
+      - هیئت علمی دانشگاه‌های علوم پزشکی قزوین و اصفهان از سال ۱۳۹۰
+      - ریاست بیمارستان‌های ولایت قزوین و خورشید اصفهان
+      - عضویت در هیئت‌مدیره انجمن متخصصین ریه ایران و کمیته علمی ملی کووید‑۱۹
+  - title: پیشگام در خدمات تخصصی ریه در اصفهان
+    description: راه‌اندازی بخش‌ها و کلینیک‌های تخصصی، دسترسی بیماران به روش‌های پیشرفته تشخیصی و درمانی را ممکن کرده است.
+    points:
+      - بنیان‌گذار بخش برونکوسکوپی مداخله‌ای در قزوین و اصفهان
+      - بنیان‌گذار کلینیک بازتوانی ریوی اصفهان
+      - اختراع جلیقه تولید فرکانس مکانیکی برای درمان برونشکتازی (۱۳۹۴)
+  - title: رویکرد آموزشی و مبتنی بر شواهد
+    description: تدریس دانشگاهی، تألیف و ترجمه راهنماهای ملی و انتشار مقالات بین‌المللی، درمان را بر پایه دانش روز نگه می‌دارد.
+    points:
+      - آموزش پاتوفیزیولوژی و آموزش بالینی بیماری‌های ریه برای دانشجویان و دستیاران
+      - ویراستاری و تألیف منابعی مانند تهویه مکانیکی، اکسیژن‌درمانی، راهنمای ملی COPD و خودمراقبتی COPD
+      - ده‌ها مقاله بین‌المللی و ارائه در کنگره‌های ERS
+specialtiesIntro: |
+  دکتر رامین سامی خدمات تشخیصی، مشاوره‌ای و درمانی بیماری‌های ریه و دستگاه تنفس را بر اساس رویکرد علمی و تجربه بالینی ارائه می‌کند. از آسم و COPD تا برونکوسکوپی مداخله‌ای، آپنه خواب و غربالگری سرطان ریه، برنامه مراقبت متناسب با شرایط هر بیمار طراحی می‌شود.
+specialties:
+  - title: آسم و آلرژی‌های تنفسی
+    serviceSlug: asthma-allergy
+    items:
+      - تشخیص و درمان آسم در کودکان و بزرگسالان
+      - مدیریت آلرژی‌های تنفسی
+      - کنترل علائم و بهبود کیفیت زندگی
+  - title: بیماری‌های مزمن انسدادی ریه (COPD)
+    serviceSlug: copd
+    items:
+      - برنامه‌ریزی درمانی جامع COPD
+      - دارودرمانی، بازتوانی ریوی و آموزش خودمراقبتی
+      - کاهش تشدیدها و کند کردن پیشرفت بیماری
+  - title: برونکوسکوپی تشخیصی و درمانی
+    serviceSlug: bronchoscopy
+    items:
+      - برونکوسکوپی مداخله‌ای با تجهیزات پیشرفته
+      - نمونه‌برداری (بیوپسی) و تشخیص دقیق
+      - اقدامات درمانی داخل راه هوایی
+  - title: تست‌های عملکرد ریوی (اسپیرومتری)
+    serviceSlug: spirometry
+    items:
+      - ارزیابی ظرفیت و عملکرد ریه‌ها
+      - کمک به تشخیص صحیح بیماری‌های تنفسی
+      - پایش روند درمان
+  - title: بیماری‌های بینابینی ریه و فیبروز
+    serviceSlug: ild-fibrosis
+    items:
+      - تشخیص و مدیریت فیبروز ریوی و ILD
+      - کند کردن روند بیماری
+      - حفظ عملکرد تنفسی
+  - title: اختلالات تنفسی مرتبط با خواب
+    serviceSlug: sleep-apnea
+    items:
+      - بررسی و درمان آپنه خواب
+      - بهبود کیفیت خواب و کاهش خستگی روزانه
+      - پیشگیری از عوارض قلبی‌عروقی
+  - title: غربالگری و تشخیص زودهنگام سرطان ریه
+    serviceSlug: lung-cancer-screening
+    items:
+      - غربالگری افراد در معرض خطر
+      - تشخیص مراحل اولیه
+      - افزایش شانس موفقیت درمان
+  - title: مشاوره تخصصی ریه و نظر دوم
+    serviceSlug: consultation
+    items:
+      - مشاوره پیش از جراحی‌های سنگین
+      - بررسی پرونده‌های پیچیده (نظر دوم)
+      - راهنمایی برای انتخاب بهترین مسیر درمانی
+cta:
+  services: مشاهده خدمات
+  appointment: رزرو نوبت
+  viewService: مشاهده صفحه خدمت
+  downloadResume: دانلود رزومه
+  subtitle: برای شروع ویزیت تخصصی یا آشنایی با خدمات ریوی، همین حالا وقت خود را رزرو کنید یا رزومه کامل را دریافت کنید.

@@ -5,10 +5,11 @@ import { Pagination, Navigation, Autoplay } from 'swiper/modules'
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const dir = useDir()
+const { getTitle, getDescription } = useLocalizedField()
+
+const { posts } = useServices()
 
 const swiperModules = [Pagination, Navigation, Autoplay]
-
-const { services } = useServices()
 
 const navigationOptions = {
   prevEl: '.landing-services__nav-prev',
@@ -33,7 +34,6 @@ const paginationOptions = {
   <UContainer>
     <div class="landing-services__swiper my-12">
       <div
-        v-if="$device.isDesktopOrTablet"
         class="landing-services__nav mb-8 flex items-center gap-2"
         :class="dir === 'rtl' ? 'justify-end' : 'justify-start'"
       >
@@ -43,7 +43,7 @@ const paginationOptions = {
           :aria-label="navPrevLabel"
         >
           <UIcon
-            :name="dir === 'rtl' ? 'i-heroicons-chevron-right' : 'i-heroicons-chevron-left'"
+            :name="dir === 'rtl' ? 'i-lucide-chevron-right' : 'i-lucide-chevron-left'"
             class="size-4"
           />
         </button>
@@ -53,7 +53,7 @@ const paginationOptions = {
           :aria-label="navNextLabel"
         >
           <UIcon
-            :name="dir === 'rtl' ? 'i-heroicons-chevron-left' : 'i-heroicons-chevron-right'"
+            :name="dir === 'rtl' ? 'i-lucide-chevron-left' : 'i-lucide-chevron-right'"
             class="size-4"
           />
         </button>
@@ -66,15 +66,15 @@ const paginationOptions = {
         :space-between="50"
         autoplay
         loop
-        :navigation="$device.isDesktopOrTablet ? navigationOptions : false"
+        :navigation="navigationOptions"
         :pagination="paginationOptions"
         class="landing-services-swiper"
       >
-        <SwiperSlide class="py-2" v-for="item in services" :key="item.key">
+        <SwiperSlide v-for="post in (posts || [])" :key="post.slug" class="py-2">
           <ClientOnly>
             <UPageCard
               class="m-2 flex min-h-[536px] flex-col"
-              :title="t(`services.list.${item.key}.title`)"
+              :title="getTitle(post)"
               :ui="{
                 title: 'text-xl line-clamp-2',
                 header: 'w-full',
@@ -84,9 +84,9 @@ const paginationOptions = {
             >
               <template #header>
                 <NuxtImg
-                  :src="item.image"
-                  :alt="t(`services.list.${item.key}.title`)"
-                  class="w-full object-cover rounded-xl mb-8"
+                  :src="post.image || '/images/services/consultation.png'"
+                  :alt="getTitle(post)"
+                  class="mb-8 w-full rounded-xl object-cover"
                   format="webp"
                   loading="lazy"
                 />
@@ -94,18 +94,18 @@ const paginationOptions = {
 
               <template #description>
                 <span class="line-clamp-3 text-base text-gray-600 dark:text-gray-300">
-                  {{ t(`services.list.${item.key}.description`) }}
+                  {{ getDescription(post) }}
                 </span>
               </template>
 
               <template #footer>
                 <UButton
                   :label="t('home.sections.services.cta')"
-                  :to="localePath(item.to)"
+                  :to="localePath(`/service/${post.slug}`)"
                   color="primary"
                   variant="soft"
                   block
-                  :trailing-icon="dir === 'rtl' ? 'i-heroicons-arrow-left' : 'i-heroicons-arrow-right'"
+                  :trailing-icon="dir === 'rtl' ? 'i-lucide-chevron-left' : 'i-lucide-arrow-right'"
                 />
               </template>
             </UPageCard>

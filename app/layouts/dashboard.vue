@@ -1,112 +1,62 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
 
-const route = useRoute()
-const toast = useToast()
+const { t } = useI18n()
 const localePath = useLocalePath()
+const dir = useDir()
+const menuSide = computed(() => (dir.value === 'rtl' ? 'right' : 'left'))
 const open = ref(false)
 
 const links = [[{
-  label: 'داشبورد',
-  icon: 'i-lucide-house',
+  label: t('dashboard.menu.overview'),
+  icon: 'i-lucide-layout-dashboard',
   to: localePath('/dashboard'),
-  onSelect: () => {
-    open.value = false
-  }
+  onSelect: () => { open.value = false }
 }, {
-  label: 'کارتابل',
-  icon: 'i-lucide-inbox',
-  to: localePath('/dashboard/inbox'),
-  badge: '4',
-  onSelect: () => {
-    open.value = false
-  }
+  label: t('dashboard.menu.services'),
+  icon: 'i-lucide-stethoscope',
+  to: localePath('/dashboard/services'),
+  onSelect: () => { open.value = false }
 }, {
-  label: 'کاربران',
-  icon: 'i-lucide-users',
-  to: localePath('/dashboard/customers'),
-  onSelect: () => {
-    open.value = false
-  }
+  label: t('dashboard.menu.blog'),
+  icon: 'i-lucide-newspaper',
+  to: localePath('/dashboard/blog'),
+  onSelect: () => { open.value = false }
 }, {
-  label: 'تنظیمات',
-  to: localePath('/dashboard/settings'),
+  label: t('dashboard.menu.medicalEducation'),
+  icon: 'i-lucide-graduation-cap',
+  to: localePath('/dashboard/medical-education'),
+  onSelect: () => { open.value = false }
+}, {
+  label: t('dashboard.menu.patientEducation'),
+  icon: 'i-lucide-heart-pulse',
+  to: localePath('/dashboard/patient-education'),
+  onSelect: () => { open.value = false }
+}, {
+  label: t('dashboard.menu.faq'),
+  icon: 'i-lucide-circle-help',
+  to: localePath('/dashboard/faq'),
+  onSelect: () => { open.value = false }
+}, {
+  label: t('dashboard.menu.settings'),
   icon: 'i-lucide-settings',
-  defaultOpen: true,
-  type: 'trigger',
-  children: [{
-    label: 'عمومی',
-    to: localePath('/dashboard/settings'),
-    exact: true,
-    onSelect: () => {
-      open.value = false
-    }
-  }, {
-    label: 'امنیت',
-    to: localePath('/dashboard/settings/security'),
-    onSelect: () => {
-      open.value = false
-    }
-  }]
+  to: localePath('/dashboard/settings/security'),
+  onSelect: () => { open.value = false }
 }], [{
-  label: 'تیکت',
-  icon: 'i-lucide-message-circle',
-  to: 'https://github.com/nuxt-ui-templates/dashboard',
-  target: '_blank'
-}, {
-  label: 'پشتیبانی',
-  icon: 'i-lucide-info',
-  to: 'https://github.com/nuxt-ui-templates/dashboard',
-  target: '_blank'
+  label: t('dashboard.menu.backToSite'),
+  icon: 'i-lucide-external-link',
+  to: localePath('/'),
+  target: '_self'
 }]] satisfies NavigationMenuItem[][]
-
-const groups = computed(() => [{
-  id: 'links',
-  label: 'Go to',
-  items: links.flat()
-}, {
-  id: 'code',
-  label: 'Code',
-  items: [{
-    id: 'source',
-    label: 'View page source',
-    icon: 'i-simple-icons-github',
-    to: `https://github.com/nuxt-ui-templates/dashboard/blob/main/app/pages${route.path === '/' ? '/index' : route.path}.vue`,
-    target: '_blank'
-  }]
-}])
-
-onMounted(async () => {
-  const cookie = useCookie('cookie-consent')
-  if (cookie.value === 'accepted') {
-    return
-  }
-
-  toast.add({
-    title: 'We use first-party cookies to enhance your experience on our website.',
-    duration: 0,
-    close: false,
-    actions: [{
-      label: 'Accept',
-      color: 'neutral',
-      variant: 'outline',
-      onClick: () => {
-        cookie.value = 'accepted'
-      }
-    }, {
-      label: 'Opt out',
-      color: 'neutral',
-      variant: 'ghost'
-    }]
-  })
-})
 </script>
 
 <template>
-  <UDashboardGroup :dir="useDir().value" unit="rem">
+  <UDashboardGroup :dir="dir" unit="rem">
     <UDashboardSidebar
       id="default"
-       :dir="useDir().value"
+      :dir="dir"
+      :toggle-side="menuSide"
+      :menu="{ side: menuSide }"
       v-model:open="open"
       collapsible
       resizable
@@ -114,14 +64,14 @@ onMounted(async () => {
       :ui="{ footer: 'lg:border-t lg:border-default' }"
     >
       <template #header="{ collapsed }">
-        <!-- <TeamsMenu  :dir="useDir().value" :collapsed="collapsed" /> -->
+        <div v-if="!collapsed" class="px-2 py-3 font-semibold text-primary">
+          {{ t('dashboard.title') }}
+        </div>
       </template>
 
       <template #default="{ collapsed }">
-        <UDashboardSearchButton label="جستجو" :collapsed="collapsed" class="bg-transparent ring-default" />
-
         <UNavigationMenu
-         :dir="useDir().value"
+          :dir="dir"
           :collapsed="collapsed"
           :items="links[0]"
           orientation="vertical"
@@ -130,7 +80,7 @@ onMounted(async () => {
         />
 
         <UNavigationMenu
-         :dir="useDir().value"
+          :dir="dir"
           :collapsed="collapsed"
           :items="links[1]"
           orientation="vertical"
@@ -144,10 +94,6 @@ onMounted(async () => {
       </template>
     </UDashboardSidebar>
 
-    <UDashboardSearch :groups="groups" />
-
     <slot />
-
-    <NotificationsSlideover />
   </UDashboardGroup>
 </template>

@@ -10,7 +10,8 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'motion-v/nuxt',
     '@nuxtjs/i18n',
-    '@nuxtjs/device'
+    '@nuxtjs/device',
+    'nuxt-auth-utils'
   ],
 ssr: true,
 
@@ -63,18 +64,23 @@ ssr: true,
   // },
 
   runtimeConfig: {
+    dataDir: process.env.NUXT_DATA_DIR || '',
+    session: {
+      password: process.env.NUXT_SESSION_PASSWORD || 'change-me-in-production-32chars-min'
+    },
     public: {
       siteUrl: 'https://raminsami.ir'
     }
   },
 
-  // ✅ فقط یک جا routeRules (در root)
+  // Dynamic content from database - no prerender/SWR on homepage
   routeRules: {
-    '/': {
-      prerender: true,
-      swr: 3600 // 1 hour
-    },
     '/images/**': {
+      headers: {
+        'Cache-Control': 'public, max-age=31536000, immutable'
+      }
+    },
+    '/uploads/**': {
       headers: {
         'Cache-Control': 'public, max-age=31536000, immutable'
       }
@@ -103,9 +109,9 @@ ssr: true,
     },
     minify: true,
     prerender: {
-      crawlLinks: true,
-      routes: ['/'],
-      ignore: ['/api'],
+      crawlLinks: false,
+      routes: [],
+      ignore: ['/api', '/dashboard', '/auth'],
       failOnError: false
     }
   },
@@ -195,6 +201,33 @@ ssr: true,
   //   xsl: false,
   //   credits: false
   // },
+
+  // Serve icons from local @iconify-json packages only (no Iconify CDN).
+  // Needed for reliable icons on national-only internet.
+  icon: {
+    fallbackToApi: false,
+    serverBundle: {
+      collections: ['lucide', 'simple-icons']
+    },
+    clientBundle: {
+      scan: true,
+      // Dynamic icons (e.g. color-mode toggle) that scan may miss
+      icons: [
+        'lucide:sun',
+        'lucide:moon',
+        'lucide:globe',
+        'lucide:menu',
+        'lucide:x',
+        'lucide:chevron-left',
+        'lucide:chevron-right',
+        'lucide:chevron-down',
+        'lucide:arrow-left',
+        'lucide:arrow-right',
+        'simple-icons:instagram'
+      ],
+      sizeLimitKb: 512
+    }
+  },
 
   colorMode: {
     preference: 'system',

@@ -56,7 +56,7 @@ const toggleWithAnimation = (event: MouseEvent) => {
       :aria-label="`تغییر به حالت ${isDark ? 'روز' : 'شب'}`"
       color="neutral"
       variant="ghost"
-      :icon="isDark ? 'i-heroicons-sun-20-solid' : 'i-heroicons-moon-20-solid'"
+      :icon="isDark ? 'i-lucide-sun' : 'i-lucide-moon'"
       class="rounded-full"
       :disabled="isAnimating"
       @click="toggleWithAnimation"

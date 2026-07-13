@@ -25,6 +25,7 @@ const availableLocales = computed(() => {
       v-for="locale in availableLocales"
       :key="locale.code"
       :to="switchLocalePath(locale.code)"
+      :locale="false"
       color="neutral"
       variant="ghost"
       class="locale-link"
