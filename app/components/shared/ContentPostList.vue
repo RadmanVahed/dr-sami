@@ -8,8 +8,9 @@ const props = defineProps<{
   categorySection?: 'blog' | 'medical' | 'patient'
 }>()
 
-const { locale } = useI18n()
+const { t, locale } = useI18n()
 const localePath = useLocalePath()
+const dir = useDir()
 const { getTitle, getDescription, getName } = useLocalizedField()
 
 const selectedCategory = ref<number | null>(null)
@@ -27,20 +28,6 @@ const { data: categories } = props.showCategories && props.categorySection
     })
   : { data: ref([]) }
 
-const authors = computed(() => [{
-  name: useI18n().t('basic.dr'),
-  avatar: { src: '/images/profilePic3.png', alt: 'Doctor' },
-  to: localePath('/about')
-}])
-
-function formattedDate(dateString: string) {
-  return new Date(dateString).toLocaleDateString(locale.value === 'fa' ? 'fa-IR' : 'en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  })
-}
-
 const categoryOptions = computed(() => [
   { label: locale.value === 'fa' ? 'همه' : 'All', value: null },
   ...(categories.value || []).map((c: any) => ({
@@ -48,10 +35,16 @@ const categoryOptions = computed(() => [
     value: c.id
   }))
 ])
+
+const ctaLabel = computed(() =>
+  props.section === 'service'
+    ? t('home.sections.services.cta')
+    : t('home.sections.blog.cta')
+)
 </script>
 
 <template>
-  <UContainer :dir="useDir().value" class="my-8">
+  <UContainer :dir="dir" class="my-8">
     <div v-if="showCategories && categoryOptions.length > 1" class="mb-6">
       <USelectMenu
         v-model="selectedCategory"
@@ -62,19 +55,14 @@ const categoryOptions = computed(() => [
     </div>
 
     <UPageGrid>
-      <div v-for="post in (posts || [])" :key="post.id" class="my-4">
-        <UBlogPost
-          :to="localePath(`${basePath}/${post.slug}`)"
-          :title="getTitle(post)"
-          :description="getDescription(post)"
-          :image="post.image ? { src: post.image, alt: getTitle(post) } : undefined"
-          :date="formattedDate(post.publishedAt)"
-          :authors="authors"
-          orientation="vertical"
-          :ui="{ description: 'line-clamp-3' }"
-          class="min-h-[400px]"
-        />
-      </div>
+      <SharedContentCard
+        v-for="post in (posts || [])"
+        :key="post.id"
+        :title="getTitle(post)"
+        :description="getDescription(post)"
+        :to="localePath(`${basePath}/${post.slug}`)"
+        :cta="ctaLabel"
+      />
     </UPageGrid>
 
     <div v-if="!posts?.length" class="py-12 text-center text-muted">

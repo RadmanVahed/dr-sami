@@ -223,13 +223,13 @@ const faqData = [
       {
         questionFa: 'آیا امکان مشاوره آنلاین دارید؟',
         questionEn: 'Do you offer online consultations?',
-        answerFa: 'بله، مشاوره‌های آنلاین برای بیماران خارج از تهران یا موارد پیگیری فراهم است. شما می‌توانید مدارک، آزمایش‌ها و گزارش‌های تصویربرداری خود را پیش از جلسه بارگذاری کنید.',
+        answerFa: 'بله، مشاوره‌های آنلاین برای بیماران با هماهنگی با منشی فراهم است. شما می‌توانید مدارک، آزمایش‌ها و گزارش‌های تصویربرداری خود را پیش از جلسه برای منشی ارسال کنید تا بررسی اولیه انجام شود.',
         answerEn: 'Yes, online consultations are available for patients outside Tehran or for follow-up cases. You can upload your documents, lab results, and imaging reports before the session.'
       },
       {
         questionFa: 'آیا کودکان هم در کلینیک ویزیت می‌شوند؟',
         questionEn: 'Are children also seen at the clinic?',
-        answerFa: 'بله، خدمات تشخیص و درمان آسم و آلرژی‌های تنفسی برای کودکان و بزرگسالان ارائه می‌شود.',
+        answerFa: 'بله، خدمات تشخیص و درمان آسم و آلرژی‌های تنفسی برای کودکان بالای 8 سال و بزرگسالان ارائه می‌شود.',
         answerEn: 'Yes, diagnostic and treatment services for asthma and respiratory allergies are provided for both children and adults.'
       }
     ]

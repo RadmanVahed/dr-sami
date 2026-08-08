@@ -28,6 +28,12 @@ const paginationOptions = {
   clickable: true,
   dynamicBullets: true
 }
+
+const swiperBreakpoints = {
+  0: { slidesPerView: 1.15, spaceBetween: 16 },
+  640: { slidesPerView: 2, spaceBetween: 20 },
+  1024: { slidesPerView: 3, spaceBetween: 24 }
+}
 </script>
 
 <template>
@@ -62,54 +68,23 @@ const paginationOptions = {
       <Swiper
         :modules="swiperModules"
         :dir="dir"
-        :slides-per-view="$device.isDesktop ? 3 : $device.isTablet ? 2 : 1"
-        :space-between="50"
+        :slides-per-view="1.15"
+        :space-between="16"
+        :breakpoints="swiperBreakpoints"
         autoplay
         loop
         :navigation="navigationOptions"
         :pagination="paginationOptions"
         class="landing-services-swiper"
       >
-        <SwiperSlide v-for="post in (posts || [])" :key="post.slug" class="py-2">
-          <ClientOnly>
-            <UPageCard
-              class="m-2 flex min-h-[536px] flex-col"
-              :title="getTitle(post)"
-              :ui="{
-                title: 'text-xl line-clamp-2',
-                header: 'w-full',
-                wrapper: 'flex flex-1 flex-col',
-                footer: 'mt-auto pt-4'
-              }"
-            >
-              <template #header>
-                <NuxtImg
-                  :src="post.image || '/images/services/consultation.png'"
-                  :alt="getTitle(post)"
-                  class="mb-8 w-full rounded-xl object-cover"
-                  format="webp"
-                  loading="lazy"
-                />
-              </template>
-
-              <template #description>
-                <span class="line-clamp-3 text-base text-gray-600 dark:text-gray-300">
-                  {{ getDescription(post) }}
-                </span>
-              </template>
-
-              <template #footer>
-                <UButton
-                  :label="t('home.sections.services.cta')"
-                  :to="localePath(`/service/${post.slug}`)"
-                  color="primary"
-                  variant="soft"
-                  block
-                  :trailing-icon="dir === 'rtl' ? 'i-lucide-chevron-left' : 'i-lucide-arrow-right'"
-                />
-              </template>
-            </UPageCard>
-          </ClientOnly>
+        <SwiperSlide v-for="post in (posts || [])" :key="post.slug" class="!h-auto py-2">
+          <SharedContentCard
+            :title="getTitle(post)"
+            :description="getDescription(post)"
+            :to="localePath(`/service/${post.slug}`)"
+            :cta="t('home.sections.services.cta')"
+            class="h-full"
+          />
         </SwiperSlide>
       </Swiper>
     </div>
@@ -130,6 +105,10 @@ const paginationOptions = {
 
 .landing-services-swiper :deep(.swiper-pagination-bullet-active) {
   background-color: var(--ui-primary);
+}
+
+.landing-services-swiper :deep(.swiper-slide) {
+  height: auto;
 }
 
 .landing-services__nav-btn {

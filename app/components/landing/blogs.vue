@@ -13,12 +13,6 @@ const { data: posts } = await useFetch('/api/content/posts', {
 
 const swiperModules = [Pagination, Navigation, Autoplay]
 
-const authors = computed(() => [{
-  name: t('basic.dr'),
-  avatar: { src: '/images/profilePic3.png', alt: 'Doctor' },
-  to: localePath('/about')
-}])
-
 const navigationOptions = {
   prevEl: '.landing-blogs__nav-prev',
   nextEl: '.landing-blogs__nav-next'
@@ -37,12 +31,10 @@ const paginationOptions = {
   dynamicBullets: true
 }
 
-function formattedDate(dateString: string) {
-  return new Date(dateString).toLocaleDateString(locale.value === 'fa' ? 'fa-IR' : 'en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  })
+const swiperBreakpoints = {
+  0: { slidesPerView: 1.15, spaceBetween: 16 },
+  640: { slidesPerView: 2, spaceBetween: 20 },
+  1024: { slidesPerView: 3, spaceBetween: 24 }
 }
 </script>
 
@@ -78,42 +70,23 @@ function formattedDate(dateString: string) {
       <Swiper
         :modules="swiperModules"
         :dir="dir"
-        :slides-per-view="$device.isDesktop ? 3 : $device.isTablet ? 2 : 1"
-        :space-between="50"
+        :slides-per-view="1.15"
+        :space-between="16"
+        :breakpoints="swiperBreakpoints"
         autoplay
         loop
         :navigation="navigationOptions"
         :pagination="paginationOptions"
         class="landing-blogs-swiper"
       >
-        <SwiperSlide v-for="post in (posts || []).slice(0, 4)" :key="post.id" class="py-4">
-          <ClientOnly>
-            <UBlogPost
-              :title="getTitle(post)"
-              :description="getDescription(post)"
-              :image="post.image ? { src: post.image, alt: getTitle(post) } : undefined"
-              :date="formattedDate(post.publishedAt)"
-              :authors="authors"
-              orientation="vertical"
-              class="min-h-[465.25px]"
-              :ui="{
-                root: 'flex flex-col min-h-[465.25px]',
-                description: 'line-clamp-3',
-                footer: 'mt-auto pt-4'
-              }"
-            >
-              <template #footer>
-                <UButton
-                  :label="t('home.sections.blog.cta')"
-                  :to="localePath(`/patient-education/${post.slug}`)"
-                  color="primary"
-                  variant="soft"
-                  block
-                  :trailing-icon="dir === 'rtl' ? 'i-lucide-arrow-left' : 'i-lucide-arrow-right'"
-                />
-              </template>
-            </UBlogPost>
-          </ClientOnly>
+        <SwiperSlide v-for="post in (posts || []).slice(0, 4)" :key="post.id" class="!h-auto py-2">
+          <SharedContentCard
+            :title="getTitle(post)"
+            :description="getDescription(post)"
+            :to="localePath(`/patient-education/${post.slug}`)"
+            :cta="t('home.sections.blog.cta')"
+            class="h-full"
+          />
         </SwiperSlide>
       </Swiper>
     </div>
@@ -134,6 +107,10 @@ function formattedDate(dateString: string) {
 
 .landing-blogs-swiper :deep(.swiper-pagination-bullet-active) {
   background-color: var(--ui-primary);
+}
+
+.landing-blogs-swiper :deep(.swiper-slide) {
+  height: auto;
 }
 
 .landing-blogs__nav-btn {

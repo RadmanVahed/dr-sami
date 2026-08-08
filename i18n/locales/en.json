@@ -42,7 +42,7 @@
       "services": {
         "title": "Specialized Services",
         "description": "We provide a wide range of diagnostic and therapeutic services for various pulmonary and respiratory diseases, using modern equipment and up-to-date medical knowledge.",
-        "cta": "View service details"
+        "cta": "View"
       },
       "appointment": {
         "title": "Online Appointment Booking"
@@ -50,7 +50,7 @@
       "blog": {
         "title": "Patient Education",
         "description": "Read up-to-date scientific articles to improve your knowledge about lung health and respiratory diseases.",
-        "cta": "Read article"
+        "cta": "View"
       },
       "faq": {
         "title": "Frequently Asked Questions"
